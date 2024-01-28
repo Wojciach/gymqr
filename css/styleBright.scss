@@ -1,0 +1,36 @@
+@import "colorsAndDimensionsBright";
+@import "fonts";
+@import "databaseControls";
+@import "statusMonitor";
+@import "buttons";
+@import "videoPreview";
+@import "database";
+@import "addUser";
+@import "alert";
+
+html, body {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background-color: $bcgColor;
+    box-sizing: border-box;
+    main {
+        position: absolute;
+        display: flex;
+        background-color: $bcgColor2;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+}

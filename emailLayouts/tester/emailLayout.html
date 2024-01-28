@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4; /* Light background color */
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #db3434, #f56a6a); /* Gradient from blue to a lighter blue */
+            text-align: center;
+            color: #fff; /* White text color */
+            padding: 10px;
+            border-radius: 5px;
+        }
+        h4 {
+            text-align: center;
+        }
+        img {
+            display: block;
+            margin: 20px auto; /* Center the QR code */
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto; /* Center the table */
+            background: #fff; /* White table background */
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+        }
+        th, td {
+            padding: 5px;
+            text-align: center;
+            vertical-align: top;
+            border: 1px solid #ddd; /* Light gray border */
+        }
+        td {
+            text-align: left;
+        }
+        th {
+            background-color: #f7f7f7;
+        }
+        .link {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your QR Code For Access</h1>
+    <img src="{{qrCodeLink}}" alt="QR Code for Access">
+    <h4>You can aslo access the QR code by klicking this link:</h4>
+    <div class="link">{{qrCodeLink}}</div>
+    <table>
+        <tr>
+            <th>name</th>
+            <td>{{name}}</td>
+        </tr>
+        <tr>
+            <th>surname</th>
+            <td>{{surname}}</td>
+        </tr>
+        <tr>
+            <th>id</th>
+            <td>{{id}}</td>
+        </tr>
+    </table>
+</body>
+</html>

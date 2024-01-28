@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Scanner</title>
+        <link rel="stylesheet" href="css/scannerBright.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <script>
+        var link = document.querySelector('link[rel="stylesheet"]');
+        layout = localStorage.getItem('layout');
+        if (layout == 'bright') link.href = 'css/scannerBright.css';
+        else if(layout == 'dark') link.href = 'css/scannerDark.css';
+        else link.href = 'css/scannerBright.css';
+    </script>
+    <body>
+        <main>
+            <article id="scannerWindow">
+                <section id="videoPreview">
+                    <div class="video-container">
+                        <video id="preview"></video>
+                    </div>
+                    <button id="stop">Stop <br> Scanning</button>
+                    <div class="camerasBar">
+                        <button id="swapCamera">Switch Camera</button>
+                    </div>
+                </section>
+                <section id="scannedUsers">
+                    <h3 class="title">Scanned users:</h3>
+                    <h4 id="DB_Version"></h4>
+                    <ul id="list">
+
+                    </ul>
+                    <div class="buttonBar">
+                        <button id="clearScans">Clear scanned list</button>
+                        <button id="sendScansToServer">Send scans to server</button>
+                        <button id="goBackFromScanner">Go back</button>
+                    </div>
+                </section>
+                <button id="startScanning">Start scanning</button>
+            </article>
+            <article id="alert"></article>
+            <article id="confirmDialog"></article>
+        </main>
+      <script src="js/scanner.js" type="module"></script>
+    <script type="text/javascript" src="js/libs/instascan.min.js"></script> 
+    <div id="content"></div>
+    </body> 
+</html>

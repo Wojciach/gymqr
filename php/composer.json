@@ -1,0 +1,13 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.8",
+        "endroid/qr-code": "^5.0",
+        "firebase/php-jwt": "^6.10"
+    },
+    "autoload": {
+        "files": ["./qrCodeGenerator.php"],
+        "psr-4": {
+            "Wojciach\\Wojciach\\": ""
+        }
+    }
+}

@@ -1,0 +1,66 @@
+//@import "colorsAndDimensions";
+
+article#databaseControls {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $bcgColor;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    width: 100%;
+    height: $size1;
+    @media (orientation: landscape) {
+        height: $size1 * 0.6;
+    }
+    @media (orientation: portrait) {
+        height: $size1;
+    }
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: $border;
+    border-top: none;
+    box-sizing: border-box;
+    color: $fontColor;
+    font-size: 2.5em;
+    text-align: center;
+    font-family: "MyCustomFont";
+    button {
+        cursor: pointer;
+        width: 25%;
+        text-align: center;
+        color: $fontColor2;
+        font-family: inherit;
+        font-size: 0.6em;
+        @media (orientation: landscape) {
+            font-size: 0.7em;
+        }
+        @media (orientation: portrait) {
+            font-size: 1em;
+        }
+        background-color: transparent;
+        &:hover {
+            color: $fontColor;
+        }
+        &.loading {
+            animation: blink 0.7s infinite;
+        }
+    }
+}
+
+@keyframes blink {
+    0% {
+        background-color: $bcgColor;
+        color: $fontColor;
+     }
+    50% {
+        background-color: $fontColor; 
+        color: $bcgColor;
+    }
+    100% {
+        background-color: $bcgColor; 
+        color: $fontColor;
+    }
+}

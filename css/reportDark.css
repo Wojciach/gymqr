@@ -1,0 +1,275 @@
+.fontColor {
+  color: green;
+}
+
+.fontColor2 {
+  color: yellowgreen;
+}
+
+.fontColorRed {
+  color: rgb(175, 0, 0);
+}
+
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("../fonts/apple-ii-screen-typeface-font/AppleIiScreenTypeface-2aP3.ttf") format("truetype");
+}
+article#alert, article#confirmDialog {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background-color: rgb(3, 4, 9);
+  color: green;
+  font-family: "MyCustomFont";
+  font-size: 2em;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+article#alert #alertTitle, article#confirmDialog #alertTitle {
+  margin: 10px;
+  margin-top: 20px;
+}
+article#alert div#confirmText, article#alert div#alertMessage, article#alert div#alertInstructions, article#confirmDialog div#confirmText, article#confirmDialog div#alertMessage, article#confirmDialog div#alertInstructions {
+  width: 80%;
+  text-align: center;
+}
+article#alert div#alertUserDetails, article#alert div#confirmUserDetails, article#confirmDialog div#alertUserDetails, article#confirmDialog div#confirmUserDetails {
+  display: flex;
+  max-height: 50%;
+  width: 80%;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  color: yellowgreen;
+  overflow-y: scroll;
+  font-size: 0.8em;
+}
+article#alert div#alertUserDetails::-webkit-scrollbar, article#alert div#confirmUserDetails::-webkit-scrollbar, article#confirmDialog div#alertUserDetails::-webkit-scrollbar, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar {
+  width: 8px;
+}
+article#alert div#alertUserDetails::-webkit-scrollbar-track, article#alert div#confirmUserDetails::-webkit-scrollbar-track, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-track, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-track {
+  background: rgb(3, 4, 9);
+}
+article#alert div#alertUserDetails::-webkit-scrollbar-thumb, article#alert div#confirmUserDetails::-webkit-scrollbar-thumb, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-thumb, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-thumb {
+  background: green;
+}
+article#alert div#alertUserDetails::-webkit-scrollbar-thumb:hover, article#alert div#confirmUserDetails::-webkit-scrollbar-thumb:hover, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-thumb:hover, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-thumb:hover {
+  background: yellowgreen;
+}
+article#alert div.buttonBar, article#confirmDialog div.buttonBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+article#alert div.buttonBar button, article#confirmDialog div.buttonBar button {
+  background-color: inherit;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  border: green dotted 3px;
+  border-radius: 30px;
+  padding: 10px;
+  margin: 10px;
+  width: 40%;
+  box-sizing: border-box;
+}
+article#alert div.buttonBar button:hover, article#confirmDialog div.buttonBar button:hover {
+  background-color: green;
+  color: rgb(3, 4, 9);
+}
+
+body, html {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(3, 4, 9);
+  color: green;
+  font-family: "MyCustomFont";
+  font-size: 1em;
+  box-sizing: border-box;
+  margin: 0;
+}
+@media (orientation: portrait) {
+  body, html {
+    font-size: 2.5em;
+  }
+}
+body main, html main {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+body main article, html main article {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow-x: scroll;
+}
+body main article .buttonBar, html main article .buttonBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+body main article .buttonBar button, html main article .buttonBar button {
+  border: 2px dotted green;
+  box-sizing: border-box;
+  border-radius: 15px;
+  position: relative;
+  background-color: rgb(3, 4, 9);
+  width: auto;
+  height: auto;
+  font-family: inherit;
+  font-size: 1.4em;
+  color: inherit;
+  padding: 10px 5px;
+}
+body main article .buttonBar button:hover, html main article .buttonBar button:hover {
+  background-color: green;
+  color: rgb(3, 4, 9);
+}
+body main article #attendanceReportsBarButton, html main article #attendanceReportsBarButton {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  display: none;
+  width: 80%;
+  justify-content: space-between;
+}
+@media screen and (max-width: 975px) {
+  body main article #attendanceReportsBarButton, html main article #attendanceReportsBarButton {
+    width: 50%;
+    flex-direction: column;
+  }
+}
+body main article #attendanceReportsBarButton label, html main article #attendanceReportsBarButton label {
+  text-align: center;
+}
+body main article #attendanceReportsBarButton input[type=date], html main article #attendanceReportsBarButton input[type=date] {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "MyCustomFont";
+  font-size: 1.2em;
+  background-color: rgb(3, 4, 9);
+  color: yellowgreen;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 2px green dashed;
+  border-radius: 15px;
+  outline: none;
+}
+body main article #attendanceReportsBarButton input[type=date]::-webkit-calendar-picker-indicator, html main article #attendanceReportsBarButton input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+}
+body main article #attendanceReportsBarButton #selectMemberForAtendanceReport, html main article #attendanceReportsBarButton #selectMemberForAtendanceReport {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+body main article #attendanceReportsBarButton #selectMemberForAtendanceReport select, html main article #attendanceReportsBarButton #selectMemberForAtendanceReport select {
+  font-family: "MyCustomFont";
+  font-size: 1em;
+  background-color: rgb(3, 4, 9);
+  color: green;
+  border: 2px green solid;
+}
+body main article #tableManipulationBar, html main article #tableManipulationBar {
+  display: none;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 15px;
+}
+body main article #tableManipulationBar label, html main article #tableManipulationBar label {
+  display: flex;
+  margin-right: 60px;
+}
+body main article #counter, html main article #counter {
+  display: none;
+  position: relative;
+  width: 90%;
+  text-align: right;
+}
+body main article #counter::before, html main article #counter::before {
+  content: "Total: ";
+  position: relative;
+  left: 0;
+}
+body main article table, html main article table {
+  border-collapse: collapse;
+  box-sizing: border-box;
+  width: 95%;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+body main article table th, html main article table th {
+  cursor: pointer;
+}
+body main article table th.marked, html main article table th.marked {
+  background-color: green;
+  color: rgb(3, 4, 9);
+}
+body main article table td, html main article table td {
+  position: relative;
+  padding: 5px;
+  border: 1px solid green;
+  box-sizing: border-box;
+  z-index: 1;
+}
+body main article table td div, html main article table td div {
+  top: 50%;
+  left: 50%;
+  display: block;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: rgb(137, 127, 51);
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+body main article table td.remind, body main article table td.edit, html main article table td.remind, html main article table td.edit {
+  cursor: pointer;
+}
+body main article table td.remind:hover, body main article table td.edit:hover, html main article table td.remind:hover, html main article table td.edit:hover {
+  background-color: green;
+  color: rgb(3, 4, 9);
+}/*# sourceMappingURL=reportDark.css.map */

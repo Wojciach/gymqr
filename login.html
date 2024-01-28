@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>QR Code Scanner</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/login.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LfSK1wpAAAAANjGvUUHlIVMCElgpB2VvVMe_huM"></script>
+    </head>
+    <script>
+        var link = document.querySelector('link[rel="stylesheet"]');
+        layout = localStorage.getItem('layout');
+        if (layout == 'bright') link.href = 'css/loginBright.css';
+        else if(layout == 'dark') link.href = 'css/loginDark.css';
+        else link.href = 'css/loginBright.css';
+    </script>
+    <body>
+        <main>
+            <article id="loginWindow">
+                <section id="loginInputs">
+                    <label for="loginLogin">Login:</label>
+                    <input 
+                        id="loginLogin"
+                        type="text"
+                    />
+                    <label> Password:</label>
+                    <input
+                        id="loginPassword"
+                        type="password"
+                    />
+                </section>
+                <section id="loginButtons">
+                    <button id="cancelButton">Cancel</button>
+                    <button id="loginButton">Login</button>
+                </section>
+            </article>
+            <article id="alert"></article>
+        </main>
+        <script src="js/login.js" type="module"></script>
+    </body>
+</html>

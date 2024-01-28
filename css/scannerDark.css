@@ -1,0 +1,327 @@
+button {
+  cursor: pointer;
+}
+
+.fontColor {
+  color: green;
+}
+
+.fontColor2 {
+  color: yellowgreen;
+}
+
+.fontColorRed {
+  color: rgb(175, 0, 0);
+}
+
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("../fonts/apple-ii-screen-typeface-font/AppleIiScreenTypeface-2aP3.ttf") format("truetype");
+}
+article#alert, article#confirmDialog {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background-color: rgb(3, 4, 9);
+  color: green;
+  font-family: "MyCustomFont";
+  font-size: 2em;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+article#alert #alertTitle, article#confirmDialog #alertTitle {
+  margin: 10px;
+  margin-top: 20px;
+}
+article#alert div#confirmText, article#alert div#alertMessage, article#alert div#alertInstructions, article#confirmDialog div#confirmText, article#confirmDialog div#alertMessage, article#confirmDialog div#alertInstructions {
+  width: 80%;
+  text-align: center;
+}
+article#alert div#alertUserDetails, article#alert div#confirmUserDetails, article#confirmDialog div#alertUserDetails, article#confirmDialog div#confirmUserDetails {
+  display: flex;
+  max-height: 50%;
+  width: 80%;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  color: yellowgreen;
+  overflow-y: scroll;
+  font-size: 0.8em;
+}
+article#alert div#alertUserDetails::-webkit-scrollbar, article#alert div#confirmUserDetails::-webkit-scrollbar, article#confirmDialog div#alertUserDetails::-webkit-scrollbar, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar {
+  width: 8px;
+}
+article#alert div#alertUserDetails::-webkit-scrollbar-track, article#alert div#confirmUserDetails::-webkit-scrollbar-track, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-track, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-track {
+  background: rgb(3, 4, 9);
+}
+article#alert div#alertUserDetails::-webkit-scrollbar-thumb, article#alert div#confirmUserDetails::-webkit-scrollbar-thumb, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-thumb, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-thumb {
+  background: green;
+}
+article#alert div#alertUserDetails::-webkit-scrollbar-thumb:hover, article#alert div#confirmUserDetails::-webkit-scrollbar-thumb:hover, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-thumb:hover, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-thumb:hover {
+  background: yellowgreen;
+}
+article#alert div.buttonBar, article#confirmDialog div.buttonBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+article#alert div.buttonBar button, article#confirmDialog div.buttonBar button {
+  background-color: inherit;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  border: green dotted 3px;
+  border-radius: 30px;
+  padding: 10px;
+  margin: 10px;
+  width: 40%;
+  box-sizing: border-box;
+}
+article#alert div.buttonBar button:hover, article#confirmDialog div.buttonBar button:hover {
+  background-color: green;
+  color: rgb(3, 4, 9);
+}
+
+body {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(3, 4, 9);
+  color: green;
+  font-family: "MyCustomFont";
+  font-size: 1em;
+  box-sizing: border-box;
+  margin: 0;
+}
+@media (orientation: portrait) {
+  body {
+    font-size: 2.5em;
+  }
+}
+body main {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+body main article#scannerWindow {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+@media (orientation: portrait) {
+  body main article#scannerWindow {
+    flex-direction: column;
+  }
+}
+body main article#scannerWindow section#videoPreview {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 50%;
+  height: 80vh;
+  box-sizing: border-box;
+}
+@media (orientation: portrait) {
+  body main article#scannerWindow section#videoPreview {
+    width: 100%;
+    height: 30vh;
+  }
+}
+body main article#scannerWindow section#videoPreview div.video-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+body main article#scannerWindow section#videoPreview div.video-container video#preview {
+  width: 100%;
+  height: 100%;
+}
+body main article#scannerWindow section#videoPreview button#stop {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 2em;
+  background-color: transparent;
+  color: red;
+  font-family: inherit;
+}
+body main article#scannerWindow section#videoPreview div.camerasBar {
+  position: absolute;
+  bottom: 0;
+}
+body main article#scannerWindow section#videoPreview div.camerasBar button#swapCamera {
+  font-size: 2em;
+  background-color: transparent;
+  color: red;
+  font-family: inherit;
+}
+body main article#scannerWindow section#scannedUsers {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+@media screen and (orientation: portrait) {
+  body main article#scannerWindow section#scannedUsers {
+    width: 100%;
+    height: 50%;
+  }
+}
+body main article#scannerWindow section#scannedUsers .title {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 3px;
+}
+body main article#scannerWindow section#scannedUsers #DB_Version {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+body main article#scannerWindow section#scannedUsers #DB_Version.fontColor2 {
+  color: yellowgreen;
+}
+body main article#scannerWindow section#scannedUsers #DB_Version.fontColorRed {
+  color: rgb(175, 0, 0);
+}
+body main article#scannerWindow section#scannedUsers #DB_Version::before {
+  color: rgb(3, 4, 9);
+  background-color: yellowgreen;
+  position: relative;
+  content: "DB Version: ";
+  margin-right: 10px;
+  padding-right: 0;
+  padding-left: 5px;
+}
+body main article#scannerWindow section#scannedUsers ul {
+  flex: 1;
+  font-size: 1.2em;
+  overflow-y: scroll;
+  margin-top: 0;
+  padding: 0;
+}
+body main article#scannerWindow section#scannedUsers ul li:first-child {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+body main article#scannerWindow section#scannedUsers ul::-webkit-scrollbar {
+  width: 10px;
+}
+body main article#scannerWindow section#scannedUsers ul::-webkit-scrollbar-track {
+  background: rgb(3, 4, 9);
+}
+body main article#scannerWindow section#scannedUsers ul::-webkit-scrollbar-thumb {
+  background: green;
+}
+body main article#scannerWindow section#scannedUsers ul::-webkit-scrollbar-thumb:hover {
+  background: yellowgreen;
+}
+body main article#scannerWindow section#scannedUsers ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid green;
+}
+body main article#scannerWindow section#scannedUsers ul li .liID {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+body main article#scannerWindow section#scannedUsers ul li .liNameSurname {
+  display: flex;
+  flex-direction: column;
+}
+body main article#scannerWindow section#scannedUsers ul li .liTime {
+  color: yellowgreen;
+  margin-left: 10px;
+}
+body main article#scannerWindow section#scannedUsers ul li .liStatus {
+  display: flex;
+  position: relative;
+  color: yellowgreen;
+  background-color: yellow;
+  height: 20px;
+  width: 20px;
+  margin-right: 6px;
+  border-radius: 50%;
+}
+body main article#scannerWindow section#scannedUsers ul li.sent .liStatus {
+  background-color: green;
+}
+body main article#scannerWindow section#scannedUsers .buttonBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+body main article#scannerWindow section#scannedUsers .buttonBar button {
+  border: 3px dotted green;
+  border-radius: 15px;
+  position: relative;
+  bottom: 5px;
+  right: 5px;
+  background-color: rgb(3, 4, 9);
+  width: auto;
+  height: auto;
+  font-family: inherit;
+  font-size: 1.4em;
+  color: inherit;
+  padding: 10px 5px;
+}
+body main article#scannerWindow section#scannedUsers .buttonBar button:hover {
+  background-color: green;
+  color: rgb(3, 4, 9);
+}
+body main article#scannerWindow button#startScanning {
+  border: 3px dotted green;
+  border-radius: 15px;
+  position: absolute;
+  background-color: rgb(3, 4, 9);
+  width: auto;
+  height: auto;
+  font-family: inherit;
+  font-size: 2em;
+  color: inherit;
+  padding: 20px;
+}
+body main article#scannerWindow button#startScanning:hover {
+  background-color: green;
+  color: rgb(3, 4, 9);
+}/*# sourceMappingURL=scannerDark.css.map */

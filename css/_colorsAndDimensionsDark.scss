@@ -1,0 +1,55 @@
+$size1: 200px;
+    
+//$bcgColor: rgb(233, 229, 220);
+$fontColor: green;
+$fontColor2: yellowgreen;
+
+$bcgColor: rgb(3, 4, 9);
+$bcgColor2: rgb(14, 23, 11);
+
+$greyButtonHighlight: rgb(255, 255, 255);
+$greyButtonColor: rgb(143, 141, 138);
+$greyButtonShadow: rgb(0, 0, 0); 
+
+$tableInnerDivColor: rgb(98, 65, 18);
+
+$darkGreen: rgb(0, 160, 0);
+$darkYellow: rgb(175, 175, 0);
+$darkRed: rgb(175, 0, 0);
+
+$border: $fontColor dotted 3px;
+$borderStyle: dotted;
+
+button {
+    cursor: pointer;
+}
+
+.fontColor {
+    color: $fontColor;
+}
+
+.fontColor2 {
+    color: $fontColor2;
+}
+
+.fontColorRed {
+    color: $darkRed;
+}
+
+@mixin button() {
+    background-color: rgb(181, 181, 181);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    border-radius: 20px;
+    border: solid 2px rgb(110, 110, 110);
+    box-sizing: border-box;
+    box-shadow: inset -2px -2px 5px #000000,
+                inset 2px 2px 5px #acacac;
+    &:active {
+        transform: translate(2px, 2px);
+    }
+}

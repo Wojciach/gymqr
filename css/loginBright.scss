@@ -1,0 +1,101 @@
+@import "colorsAndDimensionsBright";
+@import "fonts";
+@import "alert";
+
+html {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bcgColor;
+    color: $fontColor;
+    font-family: "MyCustomFont";
+    font-size: 1em;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    main {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        article#loginWindow {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            section#loginInputs {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 3px $borderStyle $fontColor;
+                @media (orientation: portrait) {
+                    border: $border;
+                    width: 70%;
+                }
+                border-radius: 15px;
+                padding: 20px;
+                width: 20%;
+                label {
+                    display: block;
+                    width: 100%;
+                    font-size: 1.2em;
+                    text-align: center;
+                }
+                input {
+                    width: 100%;
+                    background-color: inherit;
+                    color: $fontColor2;
+                    font-family: inherit;
+                    font-size: 1.2em;
+                    text-align: center;
+                    border: none;
+                    outline: none;
+                    background: none;
+                    border-bottom: dashed 2px $fontColor;
+                    margin-bottom: 10px;
+                }
+            }
+            section#loginButtons {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                button {
+                    background-color: transparent;
+                    color: $fontColor;
+                    flex-grow: 1;
+                    font-size: 1.2em;
+                    font-family: inherit;
+                    padding: 10px 15px;
+                    margin: 10px;
+                    border: 2px dashed $fontColor;
+                    @media (orientation: portrait) {
+                        border: $border;
+                    }
+                    border-radius: 15px;
+                    &:hover {
+                        background-color: $fontColor;
+                        color: $bcgColor;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+article#videoPreview {
+    display: none;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    >div {
+        position: relative;
+        background-color: yellow;
+        @media (orientation: landscape) {
+            width: 90%;
+            height: auto;
+        }
+        @media (orientation: portrait) {
+            width: 90%;
+            height: auto;
+        }
+        .video-container {
+            transform: scaleX(1);
+            transform-origin: center;
+            video#preview {
+                width: 100%;
+            }
+        }
+        button#stop {
+            background-color: transparent;
+            color: red;
+            font-size: 2em;
+            display: flex;
+            padding: 10px 5px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 3;
+            @media (orientation: landscape) {
+                font-size: 2em;
+            }
+            @media (orientation: portrait) {
+                font-size: 3em;
+            }
+        }
+        .camerasBar {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 3;
+            button {
+                background-color: transparent;
+                color: red;
+                font-size: 2em;
+                padding: 10px 5px;
+                @media (orientation: landscape) {
+                    font-size: 2em;
+                }
+                @media (orientation: portrait) {
+                    font-size: 3em;
+                }
+            }
+        }
+    }   
+}

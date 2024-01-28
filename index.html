@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <link rel="stylesheet" href="css/style.css">
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+        <script src="./js/libs/jquery.min.js"></script>
+        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+        <!-- <script src="js/register-service-worker.js"></script> -->
+    </head>
+    <script>
+        var link = document.querySelector('link[rel="stylesheet"]');
+        layout = localStorage.getItem('layout');
+        if (layout == 'bright') link.href = 'css/styleBright.css';
+        else if(layout == 'dark') link.href = 'css/styleDark.css';
+        else link.href = 'css/styleBright.css';
+    </script>
+    <body>
+        <main>
+            <article id="statusMonitor">
+                <div id="particularStatusMonitor">
+                    <div>
+                        <span>Admin:</span>
+                        <span id="adminName"></span>
+                    </div>
+                    <div>
+                        <span>Members Data:</span>
+                        <span id="DB_Version"></span>
+                    </div>
+                    <div>
+                        <span>Scan Database:</span>
+                        <span id="scanDB_Version"></span>
+                    </div>
+                </div>
+                <div id="databaseVersionMonitor">
+                    <button id="settings"></button>
+                    <button id="logout">Logout</button>
+                </div>
+                <section id="onOfLine">
+                    <div id="btnFrame">
+                    <div id="btnSlider">OFF</div>
+                    </div>
+                    <div id="onlineStatus">LINE</div>
+                </section>
+            </article>
+            <article id="databaseControls">
+                <button id="refreshDB">Refresh</button>
+                <button id="showDB">Edit<br>Add</button>
+                <button id="showDBforQRsend">Send QR Code</button>
+                <button id="reports">Reports</button>
+            </article>
+            <article id="buttons">
+                <button id="scanQR">Scan QR Code</button>
+            </article>
+            <article id="videoPreview">
+                <div>
+                    <div class="video-container">
+                        <video id="preview"></video>
+                    </div>
+                    <button id="stop">Stop <br> Scanning</button>
+                    <div class="camerasBar">
+                        <button id="swapCamera">Switch Camera</button>
+                    </div>
+                </div>
+            </article>
+
+            <article id="database"></article>
+
+            <article id="alert"></article>
+
+            <article id="confirmDialog">
+                <div id="confirmText">Example text</div>
+                <div id="confirmUserDetails"></div>
+                <div id="confirmDialogButtonBar" class="buttonBar">
+                    <button id="confirmYes">Yes</button>
+                    <button id="confirmNo">No</button>
+                </div>
+            </article>
+        </main>
+      <script src="js/js.js" type="module"></script>
+    <script type="text/javascript" src="js/libs/instascan.min.js"></script> 
+
+    <div id="content"></div>
+    </body> 
+</html>

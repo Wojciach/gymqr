@@ -1,0 +1,200 @@
+button {
+  cursor: pointer;
+}
+
+.fontColor {
+  color: green;
+}
+
+.fontColor2 {
+  color: yellowgreen;
+}
+
+.fontColorRed {
+  color: rgb(175, 0, 0);
+}
+
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("../fonts/apple-ii-screen-typeface-font/AppleIiScreenTypeface-2aP3.ttf") format("truetype");
+}
+article#alert, article#confirmDialog {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background-color: rgb(3, 4, 9);
+  color: green;
+  font-family: "MyCustomFont";
+  font-size: 2em;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+article#alert #alertTitle, article#confirmDialog #alertTitle {
+  margin: 10px;
+  margin-top: 20px;
+}
+article#alert div#confirmText, article#alert div#alertMessage, article#alert div#alertInstructions, article#confirmDialog div#confirmText, article#confirmDialog div#alertMessage, article#confirmDialog div#alertInstructions {
+  width: 80%;
+  text-align: center;
+}
+article#alert div#alertUserDetails, article#alert div#confirmUserDetails, article#confirmDialog div#alertUserDetails, article#confirmDialog div#confirmUserDetails {
+  display: flex;
+  max-height: 50%;
+  width: 80%;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  color: yellowgreen;
+  overflow-y: scroll;
+  font-size: 0.8em;
+}
+article#alert div#alertUserDetails::-webkit-scrollbar, article#alert div#confirmUserDetails::-webkit-scrollbar, article#confirmDialog div#alertUserDetails::-webkit-scrollbar, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar {
+  width: 8px;
+}
+article#alert div#alertUserDetails::-webkit-scrollbar-track, article#alert div#confirmUserDetails::-webkit-scrollbar-track, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-track, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-track {
+  background: rgb(3, 4, 9);
+}
+article#alert div#alertUserDetails::-webkit-scrollbar-thumb, article#alert div#confirmUserDetails::-webkit-scrollbar-thumb, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-thumb, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-thumb {
+  background: green;
+}
+article#alert div#alertUserDetails::-webkit-scrollbar-thumb:hover, article#alert div#confirmUserDetails::-webkit-scrollbar-thumb:hover, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-thumb:hover, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-thumb:hover {
+  background: yellowgreen;
+}
+article#alert div.buttonBar, article#confirmDialog div.buttonBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+article#alert div.buttonBar button, article#confirmDialog div.buttonBar button {
+  background-color: inherit;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  border: green dotted 3px;
+  border-radius: 30px;
+  padding: 10px;
+  margin: 10px;
+  width: 40%;
+  box-sizing: border-box;
+}
+article#alert div.buttonBar button:hover, article#confirmDialog div.buttonBar button:hover {
+  background-color: green;
+  color: rgb(3, 4, 9);
+}
+
+html {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(3, 4, 9);
+  color: green;
+  font-family: "MyCustomFont";
+  font-size: 1em;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body main {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+body main article#loginWindow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+body main article#loginWindow section#loginInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px dotted green;
+  border-radius: 15px;
+  padding: 20px;
+  width: 20%;
+}
+@media (orientation: portrait) {
+  body main article#loginWindow section#loginInputs {
+    border: green dotted 3px;
+    width: 70%;
+  }
+}
+body main article#loginWindow section#loginInputs label {
+  display: block;
+  width: 100%;
+  font-size: 1.2em;
+  text-align: center;
+}
+body main article#loginWindow section#loginInputs input {
+  width: 100%;
+  background-color: inherit;
+  color: yellowgreen;
+  font-family: inherit;
+  font-size: 1.2em;
+  text-align: center;
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom: dashed 2px green;
+  margin-bottom: 10px;
+}
+body main article#loginWindow section#loginButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body main article#loginWindow section#loginButtons button {
+  background-color: transparent;
+  color: green;
+  flex-grow: 1;
+  font-size: 1.2em;
+  font-family: inherit;
+  padding: 10px 15px;
+  margin: 10px;
+  border: 2px dashed green;
+  border-radius: 15px;
+}
+@media (orientation: portrait) {
+  body main article#loginWindow section#loginButtons button {
+    border: green dotted 3px;
+  }
+}
+body main article#loginWindow section#loginButtons button:hover {
+  background-color: green;
+  color: rgb(3, 4, 9);
+}/*# sourceMappingURL=loginDark.css.map */

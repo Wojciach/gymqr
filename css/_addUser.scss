@@ -1,0 +1,138 @@
+//@import "colorsAndDimensions";
+
+section#addUser {
+    background-color: $bcgColor;
+    color: $fontColor;
+    font-family: "MyCustomFont";
+    font-size: 4em;
+    @media (orientation: landscape) {
+        font-size: 2em;
+    }
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    form {
+        width: 100%;
+        height: 100%;
+        padding: 26px;
+        border: $border;
+        border-bottom: none;
+        box-sizing: border-box;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            width: 25px;
+        }
+        &::-webkit-scrollbar-track {
+            background: $bcgColor;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $fontColor;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: $fontColor2;
+        }
+        #DBid {
+            display: block;
+            position: relative;
+            z-index: 40;
+            padding: 0;
+            margin: 0;
+            text-align: right;
+        }
+        label {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            @media (orientation: landscape) {
+                flex-direction: row;   
+            }
+            @media (orientation: portrait) {
+                flex-direction: column;
+            }
+            align-items: center;
+            justify-content: left;
+          //  background-color: inherit;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+            color: $fontColor;
+            border-bottom: $border;
+            input {
+                background-color: inherit;
+                color: $fontColor2;
+                flex-grow: 1;
+                font-size: 1.1em;
+                outline: none;
+                border: none;
+                margin-top: 10px;
+                margin-left: 20px;
+                &::-webkit-calendar-picker-indicator {
+                    filter: invert(0.7);
+                }
+                @media (orientation: landscape) {
+                    width: 60%;
+                }
+                @media (orientation: portrait) {
+                    width: 100%;
+                }
+                box-sizing: border-box;
+                &::placeholder {
+                    color: $fontColor2;
+                    font-family: inherit;
+                
+                }
+                &:valid, &:invalid {
+                    color: $fontColor2;
+                    font-family: inherit;
+                    background-color: inherit;
+                }
+                &::selection {
+                    background-color: $fontColor;
+                    color: $bcgColor;
+                }
+                &:-webkit-autofill {
+                    background-color: $bcgColor;
+                    color: inherit !important;
+                }
+            }
+        }
+    }
+    div.buttonBar {
+        display: flex;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        @media (orientation: portrait) {
+            height: 240px;
+        }
+        button {
+            background-color: inherit;
+            width: 100%;
+            color: inherit;
+            font-family: inherit;
+            padding: 18px 0;
+            @media (orientation: landscape) {
+                font-size: 1em;
+            }
+            @media (orientation: portrait) {
+                font-size: 1em;
+            }
+            border: $border;
+            border-right: none;
+            &:last-child {
+                border-right: $border;
+            }
+            &#deleteUser {
+                color: red;
+            }
+        }
+    }
+}

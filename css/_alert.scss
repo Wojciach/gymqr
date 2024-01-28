@@ -1,0 +1,80 @@
+//@import "colorsAndDimensions";
+article#alert, article#confirmDialog {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    background-color: $bcgColor;
+    color: $fontColor;
+    font-family: "MyCustomFont";
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    #alertTitle {
+        margin: 10px;
+        margin-top: 20px;
+    }
+    div#confirmText, div#alertMessage, div#alertInstructions {
+        width: 80%;
+        text-align: center;
+    }
+    div#alertUserDetails, div#confirmUserDetails {
+        display: flex;
+      //  margin-top: 10px;
+        max-height: 50%;
+        width: 80%;
+        align-items: flex-start;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        color: $fontColor2;
+        overflow-y: scroll;
+        font-size: 0.8em;
+       // box-sizing: border-box;
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+        &::-webkit-scrollbar-track {
+            background: $bcgColor;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $fontColor;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: $fontColor2;
+        }
+    }
+    div.buttonBar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+        button {
+            background-color: inherit;
+            color: inherit;
+            font-size: inherit;
+            font-family: inherit;
+            border: $border;
+            border-radius: 30px;
+            padding: 10px;
+            margin: 10px;
+            width: 40%;
+            box-sizing: border-box;
+            &:hover {
+                background-color: $fontColor;
+                color: $bcgColor;
+            }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reports</title>
+        <link rel="stylesheet" href="css/reports.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <script>
+        var link = document.querySelector('link[rel="stylesheet"]');
+        layout = localStorage.getItem('layout');
+        if (layout == 'bright') link.href = 'css/reportsBright.css';
+        else if(layout == 'dark') link.href = 'css/reportsDark.css';
+        else link.href = 'css/reportsBright.css';
+    </script>
+    <body>
+        <main>
+            <article id="reports">
+                <h2 class="title">Reports:</h2>
+                <div class="buttonBar">
+                    <button id="paymentStatus">Payment Status</button>
+                    <button id="attendanceReport">Attendance Reports</button>
+                    <button id="goBackToIndex">Go back</button>
+                </div>
+                <div id="attendanceReportsBarButton" class="buttonBar">
+                    <div id="selectMemberForAtendanceReport">
+                        <label for="selectMember">Choose member:</label>
+                        <select id="selectMember">
+                            <option value="allMembers">All Members</option>
+                        </select>
+                    </div>
+                    <label> Start Date:
+                        <input type="date" id="dateFrom">
+                    </label>
+                    <label>End Date:
+                        <input type="date" id="dateTo">
+                    </label>
+                </div>
+                <div id="tableManipulationBar">
+                    <label>Hide zeros
+                        <input type="checkbox" id="hideZeros" name="hideZeros" value="hideZeros" checked>
+                    </label>
+                    <label>Show visual indicators
+                        <input type="checkbox" id="showVisualIndicators" name="showVisualIndicators" value="showVisualIndicators" checked>
+                    </label>
+                </div>
+                <div id="counter"></div>
+                <table id="reportTable"></table> 
+                <canvas id="myChart"></canvas> 
+            </article>
+            <article id="alert"></article>
+            <article id="confirmDialog">
+                <div id="confirmText">Example texter</div>
+                <div id="confirmUserDetails"></div>
+                <div id="confirmDialogButtonBar" class="buttonBar">
+                    <button id="confirmYes">Yes</button>
+                    <button id="confirmNo">No</button>
+                </div>
+            </article>
+        </main>
+      <script src="js/reports.js" type="module"></script> 
+    </body> 
+</html>

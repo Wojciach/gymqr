@@ -1,0 +1,41 @@
+//@import 'colorsAndDimensions';
+
+article#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    width: 50%;
+    height: 100px;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    button {
+        cursor: pointer;
+        font-family: "MyCustomFont";
+        width: $size1;
+        font-size: 1.8em;
+        @include button();
+        &:hover {
+            transform: translate(1px, 1px);
+        }
+        &.loading {
+            animation: blink 1s infinite;
+        }
+    }
+}
+
+@keyframes blink {
+    0% {
+        background-color: $bcgColor;
+        color: $fontColor;
+     }
+    50% {
+        background-color: $fontColor; 
+        color: $bcgColor;
+    }
+    100% {
+        background-color: $bcgColor; 
+        color: $fontColor;
+    }
+}

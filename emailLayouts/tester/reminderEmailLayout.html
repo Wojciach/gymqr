@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Fictional Overdue Payment Reminder</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .email-container {
+            background: #fff;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(to right, #db3434, #f56a6a);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 20px;
+            text-align: left;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        p {
+            color: #000;
+        }
+        ul {
+            color: #000;
+        }
+        li {
+            color: #000;
+        }
+        div {
+            color: #000;
+        }
+        table {
+            color: #000;
+        }
+        b {
+            color: red;
+        }
+        b.admin {
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>Hi It's your fictional Gym!</h1>
+        </div>
+        <div class="content">
+            <p>Dear <b>{{name}}</b>,</p>
+            <p>
+                This is a test email to evaluate the functionality of our email service. Please be informed that this is a fictional example, and there is no need for any action or response on your part.
+                If you have any concerns or questions, feel free to disregard this message. Your cooperation in this testing process is greatly appreciated.
+            </p>
+            <p>We hope this message finds you well. We wanted to gently remind you that your recent payment for your our Gym membership is overdue. We understand that life gets busy, and this can sometimes slip one's mind.</p>
+            <p>According to our records, your last payment of <b>{{paidAmount}}</b> was received on <b>{{paidDate}}</b>.   (<b>{{daysFromPayment}}</b> days ago) To ensure uninterrupted access to all the great facilities and classes we offer, we kindly ask that you make the outstanding payment at your earliest convenience.</p>
+            <ul>
+                <li>In person at the gym reception</li>
+                <li>
+                    Via bank transfer to the following account details:<br> 
+                    XXX <br>
+                    Account: XXX <br>
+                    Sort Code: XXX
+                </li>
+            </ul>
+            <p>If our records of your payment history seem to be incorrect, please contact <b class="admin">{{admin}}</b> in person or by phone at +44 1234 567 890.</p>
+            <p>Please pay membership before the 10th of each month, remember we are on the new membership price now:</p>
+            <table>
+                <tr>
+                    <th>Fictional Category</th>
+                    <th>Fictional Price</th>
+                </tr>
+                <tr>
+                    <td>Basic Membership</td>
+                    <td>£160</td>
+                </tr>
+                <tr>
+                    <td>Student Membership</td>
+                    <td>£150</td>
+                </tr>
+                <tr>
+                    <td>Kids Membership</td>
+                    <td>£135</td>
+                </tr>
+                <tr>
+                    <td>Siblings Membership (each)</td>
+                    <td>£130</td>
+                </tr>
+            </table>
+
+            <p>We value your continued patronage and are here to assist you in any way we can. If you have any questions or need further assistance, please don't hesitate to reach out to us.</p>
+            <p>Thank you for your prompt attention to this matter, and we look forward to seeing you at the gym soon!</p>
+        </div>
+        <div class="footer">
+            <p>Warm regards,</p>
+            <p>Fictional Fitness Center</p>
+            <p>123 Fitness Street, Imaginary City, IF1 23F</p>
+            <p>+44 1234 567 890</p>
+            <p>info@fictionalfitness.com</p>
+        </div>
+    </div>
+</body>
+</html>

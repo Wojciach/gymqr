@@ -1,0 +1,167 @@
+//@import "colorsAndDimensions";
+
+article#statusMonitor {
+    background-color: $bcgColor;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    height: $size1;
+    left: 0;
+    top: 0;
+    border: $border;
+    box-sizing: border-box;
+    color: $fontColor;
+    font-size: 2.5em;
+    text-align: center;
+    font-family: "MyCustomFont";
+    div#particularStatusMonitor {
+        margin-left: 10px;
+        text-align: left;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        justify-content: center;
+        font-size: 0.7em;
+       // background-color: red;
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            width: 100%;
+            span {
+                display: flex;
+                width: 50%;
+                box-sizing: border-box;
+                &:first-child {
+                    width: 40%;
+
+                }
+                &#adminName {
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+    div#databaseVersionMonitor {
+        position: relative;
+        width: 10%;
+        display: flex;
+        box-sizing: border-box;
+        #DB_Title {
+            font-size: 1em;
+        }
+        #DB_Version {
+            font-size: 0.5em;
+        }
+        button {
+            font-family: "MyCustomFont";
+            position: absolute;
+            display: block;
+            color: $fontColor;
+            background-color: $bcgColor;
+            &#settings {
+                cursor: pointer;
+                background-image: url('../images/sun-2-svgrepo-com.svg');
+                background-size: 85%;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 70px;
+                height: 70px;
+                margin: 5px;
+                right: 0;
+                bottom: 0;
+                &:hover {
+                    opacity: 0.5;
+                }
+                &.dark {
+                    background-image: url('../images/moon-stars-svgrepo-com.svg');
+                }
+            }
+            &#logout {
+                cursor: pointer;
+                right: 0;
+                top: 0;
+                width: 200px;
+                padding: 2px 0;
+               // height: 50px;
+                font-size: 0.8em;
+                border: $border;
+                border-right: none;
+                border-top: none;
+                border-radius: 0 0 0 20px;
+                &:hover {
+                    transform: translate(-2px, 2px);
+                    background-color: $fontColor;
+                    color: $bcgColor;
+                    transition: all 0.2s ease-in-out;
+                }
+            }
+        }
+    }
+    section#onOfLine {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: $size1;
+        right: 0;
+        top: 0;
+        border-left: $border;
+        color: $darkRed;
+        box-sizing: border-box;
+        div#btnFrame {
+            background-color: $darkRed;
+            display: flex;
+            position: relative;
+            width: 100%;
+            height: 50%;
+            left: 0;
+            top: 0;
+            border-radius: 20px;
+            box-shadow: inset 0 0 15px #000000;
+            &.on {
+                background-color: $darkGreen;
+            }
+            div#btnSlider {
+                background-color: $greyButtonColor;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                left: 0;
+                bottom: 0;
+                border-radius: 20px;
+                border: solid 2px $greyButtonShadow;
+                box-sizing: border-box;
+                transition: transform 0.2s ease-in-out;
+                text-shadow: 1px 1px 4px $fontColor;
+                box-shadow: inset -2px -2px 5px $greyButtonShadow,
+                            inset 2px 2px 5px $greyButtonHighlight;
+                width: 60%;
+                height: 100%;            
+                &.on {
+                    color: $fontColor;
+                    text-shadow: 1px 1px 4px $greyButtonShadow;
+                    transform: translateX(65%);
+                }
+            }
+        }
+        div#onlineStatus {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+            width: 100%;
+            position: relative;
+            color: $darkRed;
+            box-sizing: border-box;
+            text-shadow: 1px 1px 4px rgba(200, 0, 0, 0.5);
+            &.on {
+                color: $fontColor;
+                text-shadow: 1px 1px 4px rgba(98, 70, 30, 0.5);
+            }
+        }
+    }
+}
