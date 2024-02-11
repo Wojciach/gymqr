@@ -284,7 +284,7 @@ body main article#scannerWindow section#scannedUsers ul li .liStatus {
   border-radius: 50%;
 }
 body main article#scannerWindow section#scannedUsers ul li.sent .liStatus {
-  background-color: rgb(45, 159, 45);
+  background-color: rgb(0, 160, 0);
 }
 body main article#scannerWindow section#scannedUsers .buttonBar {
   width: 100%;

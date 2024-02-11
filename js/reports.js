@@ -1,4 +1,3 @@
-import { customFetch } from "./customFetch.js";
 import sortBy from "./sortBy.js";
 import getNewestTimestamps from "./getNewestTimestamps.js";
 import createThead from "./createThead.js";
@@ -96,11 +95,9 @@ $("#paymentStatus").click(function() {
                               surname: userSurname
                          },
                          'Do you want to sned reminder email to this user?'
-                    )}
+               )}
           );
-
-          })
-
+     })
 });
 
 $("#attendanceReport").click(function() {
@@ -136,6 +133,6 @@ $("#attendanceReport").click(function() {
 $('#attendanceReportsBarButton input, #attendanceReportsBarButton select').change(function() {
      selectedDate.startDate = $("#dateFrom").val();
      selectedDate.endDate = $("#dateTo").val();
-     console.log("selectedDate");
+     //console.log("selectedDate");
      attendanceReport();
 });

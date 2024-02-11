@@ -30,10 +30,11 @@ try {
     require_once("./passes/db_passDev.php");
     $mysqli = new mysqli($host, $user, $pass, $db_name);
 
-    if($key === 'checkCredentials')
+    // the two methods that allow to use the database without token
+    if (($key === 'checkCredentials') || ($key === "createNewAdmin"))
     {
-        if ($json->checkCredentials[2]) {
-            $recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LfSK1wpAAAAAKCo7P5uJGlOp72Qu0JPqGjqya-r&response=' . $json->checkCredentials[2]);
+        if ($json->$key[2]) {
+            $recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LfSK1wpAAAAAKCo7P5uJGlOp72Qu0JPqGjqya-r&response=' . $json->$key[2]);
             $recaptcha = json_decode($recaptcha);
             if ($recaptcha->success == true) {
                 $RequestDatabase = new RequestDatabase($mysqli, "");

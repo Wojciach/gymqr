@@ -1,5 +1,3 @@
-//@import "colorsAndDimensions";
-
 article#statusMonitor {
     background-color: $bcgColor;
     display: flex;
@@ -25,7 +23,6 @@ article#statusMonitor {
         position: relative;
         justify-content: center;
         font-size: 0.7em;
-       // background-color: red;
         div {
             display: flex;
             flex-direction: row;
@@ -37,7 +34,6 @@ article#statusMonitor {
                 box-sizing: border-box;
                 &:first-child {
                     width: 40%;
-
                 }
                 &#adminName {
                     text-transform: capitalize;

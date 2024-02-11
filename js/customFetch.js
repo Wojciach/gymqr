@@ -1,9 +1,10 @@
 export function customFetch(requestBody = null) {
 
     const requestType = Object.keys(requestBody)[0];
-    if(localStorage.getItem('token') === null && requestType !== 'checkCredentials' ) {
+    if((localStorage.getItem('token') === null) && requestType !== 'checkCredentials' && requestType !== 'createNewAdmin')
+         {
         window.location.href = 'login.html';
-        return;
+        return requestType;
     }
 
    const myFetch = fetch('./php/endpoint.php', {

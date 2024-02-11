@@ -51,7 +51,7 @@ export function showDBforQRsend() {
         .then(response => response.json())  //should be json response
         .then(data => {
             // console.log("from server: " )
-            // console.log(data)
+           //  console.log(data)
             if (data.hasOwnProperty('validEmails')) {
               //  console.log("valid emails: ");
                 const records = [];

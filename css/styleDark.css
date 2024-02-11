@@ -262,6 +262,7 @@ article#buttons {
   left: 0;
   top: 0;
   box-sizing: border-box;
+  margin-bottom: 10px;
 }
 article#buttons button {
   cursor: pointer;

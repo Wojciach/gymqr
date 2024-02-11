@@ -1,0 +1,252 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/montserrat-alternates-font/MontserratAlternatesBold-W1qO.ttf") format("truetype");
+}
+@font-face {
+  font-family: "exo2";
+  src: url("./fonts/exo-2-font/Exo2Medium-aDL9.ttf") format("truetype");
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  font-family: "exo2";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat";
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #faf8f4;
+  box-sizing: border-box;
+}
+@media (max-height: 400px) {
+  body {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+body nav {
+  position: sticky;
+  top: 10px;
+  display: flex;
+  width: -moz-min-content;
+  width: min-content;
+  height: -moz-min-content;
+  height: min-content;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: top;
+  border: 2px dotted #030001;
+  padding: 10px;
+  border-radius: 20px;
+  overflow-wrap: normal;
+  background-color: #292929;
+  color: #faf8f4;
+}
+@media (max-height: 400px) {
+  body nav {
+    position: relative;
+    width: 100%;
+    margin: 0;
+  }
+}
+@media (max-width: 600px) {
+  body nav {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    font-size: 0.8em;
+  }
+}
+body nav button#scrollUp {
+  cursor: pointer;
+  position: fixed;
+  display: block;
+  opacity: 0;
+  bottom: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  color: #faf8f4;
+  font-family: "Montserrat";
+  background-color: #292929;
+  border: dotted 2px #faf8f4;
+  border-radius: 50%;
+  background-image: url("./icons/arrow-up-svgrepo-com.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: 10;
+  transition: opacity 1s ease-in-out;
+}
+body nav button#scrollUp.show {
+  opacity: 1 !important;
+}
+body nav h2 {
+  font-size: 0.9em;
+  position: relative;
+  top: -5px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+body nav ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+@media (max-height: 400px) {
+  body nav ul {
+    flex-direction: row;
+  }
+}
+@media (max-width: 600px) {
+  body nav ul {
+    flex-direction: row;
+  }
+}
+body nav ul li {
+  color: #030001;
+  margin: 3px;
+}
+@media (max-height: 400px) {
+  body nav ul li {
+    width: 170px;
+  }
+}
+body nav ul li a {
+  white-space: nowrap;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 15px;
+  border: 2px dotted #030001;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #faf8f4;
+}
+@media (orientation: landscape) {
+  body nav ul li a {
+    font-size: 0.9em;
+    padding: 2px 10px;
+  }
+}
+@media (orientation: portrait) {
+  body nav ul li a {
+    padding: 2px 10px;
+  }
+}
+body nav ul li a:hover {
+  background-color: #ffdf00;
+}
+body main {
+  display: flex;
+  padding-left: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+body main header {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body main header h3 {
+  text-align: center;
+}
+body main header > div {
+  width: 100%;
+}
+body main header > div h1 {
+  text-align: center;
+}
+body main header #overallDescription {
+  font-size: 1.1em;
+  line-height: 1.5em;
+  font-weight: 700;
+  text-align: justify;
+}
+body main section {
+  box-sizing: border-box;
+}
+body main section article {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+body main section article div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+body main section article div h2 {
+  margin-top: 40px;
+  margin-bottom: 22px;
+  text-align: center;
+}
+body main section article div h3 {
+  text-align: center;
+  margin: 17px;
+}
+body main section article div img {
+  max-width: 100%;
+  max-height: 500px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px 0px #9b9b9b;
+}
+body main section article div ul {
+  margin-top: 3px;
+  width: 100%;
+  list-style-type: disc;
+}
+body main section article div ul li {
+  margin: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+body main section article div ul li span {
+  border: 1px solid #030001;
+}/*# sourceMappingURL=tutorial.css.map */

@@ -10,7 +10,7 @@
     </head>
     <script>
         var link = document.querySelector('link[rel="stylesheet"]');
-        layout = localStorage.getItem('layout');
+        layout = localStorage.getItem('layout') || 'bright';
         if (layout == 'bright') link.href = 'css/loginBright.css';
         else if(layout == 'dark') link.href = 'css/loginDark.css';
         else link.href = 'css/loginBright.css';
@@ -33,6 +33,12 @@
                 <section id="loginButtons">
                     <button id="cancelButton">Cancel</button>
                     <button id="loginButton">Login</button>
+                </section>
+                <section id="singnUpLogin">
+                    <div id="btnFrame">
+                        <div id="btnSlider">Sign Up</div>
+                    </div>
+                    <button id="signUpButton">Create new account</button>
                 </section>
             </article>
             <article id="alert"></article>

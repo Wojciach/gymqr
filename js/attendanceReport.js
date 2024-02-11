@@ -1,5 +1,4 @@
 import attendanceChart from './attendanceChart.js';
-import {customFetch} from './customFetch.js';
 import {selectedDate} from './reports.js';
 
 function attendanceReport() {
@@ -36,7 +35,7 @@ function attendanceReport() {
      const endDateUTC = new Date(endDate.toISOString());
 
      // Filter scansByDayAndHour
-     console.log(scansByDayAndHour);
+    // console.log(scansByDayAndHour);
      scansByDayAndHour = scansByDayAndHour.map(dayScans => 
           dayScans.map(hourScans => 
                hourScans.filter(scan => {

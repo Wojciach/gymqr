@@ -61,33 +61,23 @@ class TokenManager
         }
     }
 
-    public function checkCredentials($cerdentials)
+    public static function checkCredentials($login, $row)
     {
-        $login = $cerdentials[0];
-        $loginPassword = $cerdentials[1];
-        $sql = "SELECT * FROM `admins` WHERE `login` = '$cerdentials[0]'";
-        $result = $this->mysqli->query($sql);
-        $row = $result->fetch_assoc();
-
-        if ($result->num_rows === 1) {
-            if (password_verify($loginPassword, $row['hashed_password'])) {
-               // echo 'Password is valid!';
-                $payload = [
-                    'iat' => time(), // Issued at time
-                    'iss' => 'yourdomain.com', // Issuer
-                    'sub' => $login, // Subject (usually user ID)
-                    'exp' => time() + (60*60), // Expiration time (1 hour from now)
-                    'layout' => $row['layout']
-                ];
-                
-                $jwt = JWT::encode($payload, 'your-secret-key', 'HS256'); 
-                echo json_encode(['token' => $jwt]);
-            } else {
-                echo 'Invalid password.';
-            }
-        } else {
-            echo "no such user";
-        }
+        $payload = [
+        'iat' => time(), // Issued at time
+        'iss' => 'make-me.website', // Issuer
+        'sub' => $login, // Subject (usually user ID)
+        'exp' => time() + (60*60*24), // Expiration time (24 hour from now)
+        'layout' => $row['layout']
+        ];
+        require("./passes/$login/emailPass.php");
+        $jwt = JWT::encode($payload, 'magicSecretOf' . $tokenPass . $login, 'HS256');
+       // echo "łolaboga!";
+        echo json_encode([
+            'token' => $jwt,
+            'layout' => $row['layout'],
+            'admin' => $login
+        ]);
 
     }
 }

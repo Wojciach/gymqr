@@ -4,6 +4,8 @@ namespace Wojciach\Wojciach;
 use Wojciach\Wojciach\PHPMailerEmail;
 use \Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+use Wojciach\Wojciach\QrSender;
+use Wojciach\Wojciach\TokenManager;
 
 class RequestDatabase 
 {
@@ -133,62 +135,17 @@ class RequestDatabase
         }
     }
 
-    private function getBodyForQrEmail($row) 
-    {   
-        
-        // file name is going made of ID and timestamp, both need to be passed to link in email (PHPmailer) and file creator in ednpoint (QRcode generator)
-        $id = $row[0];
-        $timeStamp = time();
-        $timeStampString = strval($timeStamp);
-        $fileName = $id . "_" . $timeStampString . ".png";
-        $json = json_encode($row);
-
-        $endpointUrl = "https://utc.make-me.website/mockEndpoint.php?param=" . urlencode($json) . "&time=" . $timeStampString . "&admin=" . $this->admin;
-        $response = file_get_contents($endpointUrl);
-
-        // linkt to QR code image on the server that is going to be passed to email
-        $linkString = "https://utc.make-me.website/QRs/$this->admin/" . $fileName;
-        $template = file_get_contents("../emailLayouts/$this->admin/emailLayout.html");
-        $body = str_replace(
-            array('{{qrCodeLink}}', '{{name}}', '{{surname}}', '{{id}}'),
-            array($linkString, $row[1], $row[2], $row[0]),
-            $template
-        );
-        return $body;
-    }
-
-    private function getBodyForReminderEmail($row)
-    {
-        $paidDate = new \DateTime($row[5]);
-        $currentDate = new \DateTime();
-        $daysFromPayment = $paidDate->diff($currentDate);
-
-        $template = file_get_contents("../emailLayouts/$this->admin/reminderEmailLayout.html");
-        $body = str_replace(
-            array('{{name}}', '{{surname}}', '{{id}}', '{{paidDate}}', '{{paidAmount}}', '{{daysFromPayment}}', '{{admin}}'),
-            array($row[1], $row[2], $row[0], $row[5], $row[6], $daysFromPayment->format('%a'), $this->admin),
-            $template
-        );
-        return $body;
-    }
-
-    private function sendEmail($body, $emailAddress)
-    {
-        $mail = new PHPMailerEmail($body, "./passes/$this->admin/emailPass.php", $emailAddress);
-        $mail->send();
-    }
-
     public function sendQrViaEmails(array $IDs)
     {
-        $this->isArrayOfInts($IDs);
+       QrSender::isArrayOfInts($IDs);
 
         $this->getUsersData($IDs);
         $emailValidation = $this->validateEmailAddresses($this->usersData);
         if($emailValidation === true)
         {
             foreach ($this->validEmailsRows as $row) {
-                $body = $this->getBodyForQrEmail($row);
-                $this->sendEmail($body, $row[4]);
+                $body = QrSender::getBodyForQrEmail($row, $this->admin);
+                QrSender::sendEmail($body, $row[4], $this->admin);
             }
             echo json_encode(array('validEmails' => $this->validEmailsRows));
         } else {
@@ -203,9 +160,10 @@ class RequestDatabase
         }
 
         $this->getUsersData([$ID]);
-        $body = $this->getBodyForReminderEmail($this->usersData[0]);
-        $this->sendEmail($body, $this->usersData[0][4]);
-        echo json_encode(array("ok" => $this->usersData[0][4]));
+        $userToSendReminder = $this->usersData[0];
+        $body = QrSender::getBodyForReminderEmail($userToSendReminder, $this->admin);
+        QrSender::sendEmail($body, $userToSendReminder[4], $this->admin);
+        echo json_encode(array("ok" => $userToSendReminder[4]));
     }
 
     public function saveScannedQRs($scannedQRsArray)
@@ -249,41 +207,26 @@ class RequestDatabase
         if ($result->num_rows === 1) {
             if (password_verify($loginPassword, $row['hashed_password'])) {
                // echo 'Password is valid!';
-                $payload = [
-                    'iat' => time(), // Issued at time
-                    'iss' => 'make-me.website', // Issuer
-                    'sub' => $login, // Subject (usually user ID)
-                    'exp' => time() + (60*60*24), // Expiration time (24 hour from now)
-                    'layout' => $row['layout']
-                ];
-                require("./passes/$login/emailPass.php");
-                $jwt = JWT::encode($payload, 'magicSecretOf' . $tokenPass . $login, 'HS256');
-               // echo "łolaboga!";
-                echo json_encode([
-                    'token' => $jwt,
-                    'layout' => $row['layout'],
-                    'admin' => $login
-                ]);
+               TokenManager::checkCredentials($login, $row);
             } else {
                echo json_encode(['err' => 'Invalid password']);
             }
         } else {
            echo json_encode(['err' => 'no such user']);
         }
-
     }
 
-    private function isArrayOfInts($arr) 
+    public function createNewAdmin($adminData)
     {
-        if (!is_array($arr)) {
-            throw new \InvalidArgumentException('$IDs must be an array');
-        }
-    
-        $filteredIDs = array_filter($arr, 'is_int');
-    
-        if (count($arr) !== count($filteredIDs)) {
-            throw new \InvalidArgumentException('All elements in $IDs must be integers');
-        }
+        echo "request succesful";
+        // $login = $adminData[0];
+        // $loginPassword = $adminData[1];
+        // $layout = $adminData[2];
+        // $hashedPassword = password_hash($loginPassword, PASSWORD_DEFAULT);
+        // $sql = "INSERT INTO `admins`(`login`, `hashed_password`, `layout`) VALUES (?, ?, ?)";
+        // $stmt = $this->mysqli->prepare($sql);
+        // $stmt->bind_param('sss', $login, $hashedPassword, $layout);
+        // $stmt->execute();
     }
 }
 
