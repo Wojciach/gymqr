@@ -1,10 +1,8 @@
-//@import "colorsAndDimensions";
-
 article#databaseControls {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    background-color: $bcgColor;
+    background-color: $bcgAlternative3;
     flex-direction: row;
     justify-content: space-around;
     position: relative;
@@ -20,29 +18,38 @@ article#databaseControls {
     right: 0;
     top: 0;
     bottom: 0;
-    border: $border;
+   // border: $border;
     border-top: none;
+    border: none;
+    border-bottom: 2px solid $fontColor2;
     box-sizing: border-box;
     color: $fontColor;
     font-size: 2.5em;
     text-align: center;
     font-family: "MyCustomFont";
     button {
+        border-radius: 25px;
+      // border: 3px dotted $fontColor;
         cursor: pointer;
         width: 25%;
         text-align: center;
         color: $fontColor2;
         font-family: inherit;
         font-size: 0.6em;
+        background-color: $bcgColor;
+        box-shadow:
+            0px 0px 5px 0px rgba(0, 0, 0, 0.5),
+            inset -2px -2px 5px 0px $greyButtonShadow,
+            inset 2px 2px 5px 4px $greyButtonHighlight;
         @media (orientation: landscape) {
             font-size: 0.7em;
         }
         @media (orientation: portrait) {
             font-size: 1em;
         }
-        background-color: transparent;
         &:hover {
             color: $fontColor;
+            background-color: $bcgAlternative;
         }
         &.loading {
             animation: blink 0.7s infinite;

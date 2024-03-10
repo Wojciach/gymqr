@@ -7,7 +7,7 @@ import sortBy from "./sortBy.js";
 
 export function showDBforQRsend() {
 
-    // adhjusting buttons for different operations.
+    // adjusting buttons for different operations.
     // This function uses simlar code to showDB() 
     // but it it used for different purpose, 
     // namely it is used for sending QR codes to users.
@@ -51,7 +51,7 @@ export function showDBforQRsend() {
         .then(response => response.json())  //should be json response
         .then(data => {
             // console.log("from server: " )
-           //  console.log(data)
+             console.log(data)
             if (data.hasOwnProperty('validEmails')) {
               //  console.log("valid emails: ");
                 const records = [];
@@ -59,7 +59,13 @@ export function showDBforQRsend() {
                         records.push(r[1][0] + " " + r[1][4] + "<br>");
                 });
                 //showAlert("ok", records)
-                $("#alert").load("alert.html", () => showAlert('ok', null, null, records));
+                $("#alert").load("alert.html", () => showAlert(
+                    "Emails Sent!",
+                    "QR codes have been sent to the following users: ",
+                    null,
+                    records,
+                    null,
+                ));
 
             } else if (data.hasOwnProperty('invalidEmails')) {
                // console.log("invalid emails: ");
@@ -68,7 +74,13 @@ export function showDBforQRsend() {
                     records.push(r[1][0] + ", ");
                 });
                 //showAlert("err", records)
-                $("#alert").load("alert.html", () => showAlert('err', null, null, records));
+                $("#alert").load("alert.html", () => showAlert(
+                    "Sending Failed!",
+                    "Sorry! some users you are trying to send QR codes to do not have a valid email address in our database. Their IDs are:",
+                    null,
+                    records,
+                    "To send QR codes correctly, please update the database with valid email addresses for the users listed above."
+                ));
             }
         })
         .then(() => {

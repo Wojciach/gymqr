@@ -1,4 +1,3 @@
-//@import "colorsAndDimensions";
 article#alert, article#confirmDialog {
     display: none;
     flex-direction: column;
@@ -27,10 +26,11 @@ article#alert, article#confirmDialog {
     div#confirmText, div#alertMessage, div#alertInstructions {
         width: 80%;
         text-align: center;
+        font-size: 0.8em;
     }
     div#alertUserDetails, div#confirmUserDetails {
         display: flex;
-      //  margin-top: 10px;
+        margin: 10px 0;
         max-height: 50%;
         width: 80%;
         align-items: flex-start;

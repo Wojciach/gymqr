@@ -47,9 +47,11 @@ article#alert #alertTitle, article#confirmDialog #alertTitle {
 article#alert div#confirmText, article#alert div#alertMessage, article#alert div#alertInstructions, article#confirmDialog div#confirmText, article#confirmDialog div#alertMessage, article#confirmDialog div#alertInstructions {
   width: 80%;
   text-align: center;
+  font-size: 0.8em;
 }
 article#alert div#alertUserDetails, article#alert div#confirmUserDetails, article#confirmDialog div#alertUserDetails, article#confirmDialog div#confirmUserDetails {
   display: flex;
+  margin: 10px 0;
   max-height: 50%;
   width: 80%;
   align-items: flex-start;

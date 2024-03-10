@@ -20,22 +20,29 @@
         <main>
             <article id="statusMonitor">
                 <div id="particularStatusMonitor">
-                    <div>
-                        <span>Admin:</span>
-                        <span id="adminName"></span>
+                    <div id="logoutButtonSection">
+                        <button id="deleteAdmin">Delete this account</button>
+                        <button id="logout">Logout</button>
                     </div>
-                    <div>
-                        <span>Members Data:</span>
-                        <span id="DB_Version"></span>
+                    <div id="restOfStatusMonitor">
+                        <div id="databaseVersionMonitor">
+                            <div>
+                                <span>Admin:</span>
+                                <span id="adminName"></span>
+                            </div>
+                            <div>
+                                <span>Members Data:</span>
+                                <span id="DB_Version"></span>
+                            </div>
+                            <div>
+                                <span>Scan Database:</span>
+                                <span id="scanDB_Version"></span>
+                            </div>
+                        </div>
+                        <div id="settingsSection">
+                            <button id="settings"></button>
+                        </div>
                     </div>
-                    <div>
-                        <span>Scan Database:</span>
-                        <span id="scanDB_Version"></span>
-                    </div>
-                </div>
-                <div id="databaseVersionMonitor">
-                    <button id="settings"></button>
-                    <button id="logout">Logout</button>
                 </div>
                 <section id="onOfLine">
                     <div id="btnFrame">

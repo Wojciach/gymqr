@@ -1,17 +1,17 @@
-button {
-  cursor: pointer;
-}
-
 .fontColor {
-  color: green;
+  color: rgb(3, 4, 9);
 }
 
 .fontColor2 {
-  color: yellowgreen;
+  color: rgb(122, 68, 26);
 }
 
 .fontColorRed {
   color: rgb(175, 0, 0);
+}
+
+button {
+  cursor: pointer;
 }
 
 @font-face {
@@ -29,8 +29,8 @@ article#alert, article#confirmDialog {
   height: 100%;
   width: 100%;
   z-index: 100;
-  background-color: rgb(3, 4, 9);
-  color: green;
+  background-color: rgb(233, 229, 220);
+  color: rgb(3, 4, 9);
   font-family: "MyCustomFont";
   font-size: 2em;
   justify-content: center;
@@ -58,7 +58,7 @@ article#alert div#alertUserDetails, article#alert div#confirmUserDetails, articl
   justify-content: center;
   text-align: center;
   position: relative;
-  color: yellowgreen;
+  color: rgb(122, 68, 26);
   overflow-y: scroll;
   font-size: 0.8em;
 }
@@ -66,13 +66,13 @@ article#alert div#alertUserDetails::-webkit-scrollbar, article#alert div#confirm
   width: 8px;
 }
 article#alert div#alertUserDetails::-webkit-scrollbar-track, article#alert div#confirmUserDetails::-webkit-scrollbar-track, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-track, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-track {
-  background: rgb(3, 4, 9);
+  background: rgb(233, 229, 220);
 }
 article#alert div#alertUserDetails::-webkit-scrollbar-thumb, article#alert div#confirmUserDetails::-webkit-scrollbar-thumb, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-thumb, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-thumb {
-  background: green;
+  background: rgb(3, 4, 9);
 }
 article#alert div#alertUserDetails::-webkit-scrollbar-thumb:hover, article#alert div#confirmUserDetails::-webkit-scrollbar-thumb:hover, article#confirmDialog div#alertUserDetails::-webkit-scrollbar-thumb:hover, article#confirmDialog div#confirmUserDetails::-webkit-scrollbar-thumb:hover {
-  background: yellowgreen;
+  background: rgb(122, 68, 26);
 }
 article#alert div.buttonBar, article#confirmDialog div.buttonBar {
   display: flex;
@@ -86,7 +86,7 @@ article#alert div.buttonBar button, article#confirmDialog div.buttonBar button {
   color: inherit;
   font-size: inherit;
   font-family: inherit;
-  border: green dotted 3px;
+  border: rgb(3, 4, 9) solid 3px;
   border-radius: 30px;
   padding: 10px;
   margin: 10px;
@@ -94,8 +94,8 @@ article#alert div.buttonBar button, article#confirmDialog div.buttonBar button {
   box-sizing: border-box;
 }
 article#alert div.buttonBar button:hover, article#confirmDialog div.buttonBar button:hover {
-  background-color: green;
-  color: rgb(3, 4, 9);
+  background-color: rgb(3, 4, 9);
+  color: rgb(233, 229, 220);
 }
 
 section#singnUpLogin {
@@ -125,7 +125,7 @@ section#singnUpLogin div#btnFrame.on {
   background-color: rgb(0, 160, 0);
 }
 section#singnUpLogin div#btnFrame div#btnSlider {
-  background-color: rgb(143, 141, 138);
+  background-color: rgb(168, 140, 104);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,14 +136,14 @@ section#singnUpLogin div#btnFrame div#btnSlider {
   border: solid 2px rgb(0, 0, 0);
   box-sizing: border-box;
   transition: transform 0.2s ease-in-out;
-  text-shadow: 1px 1px 4px green;
-  box-shadow: inset -2px -2px 5px rgb(0, 0, 0), inset 2px 2px 5px rgb(100, 100, 100);
+  text-shadow: 1px 1px 4px rgb(3, 4, 9);
+  box-shadow: inset -2px -2px 5px rgb(0, 0, 0), inset 2px 2px 5px rgb(255, 255, 255);
   width: 60%;
   height: 100%;
   padding: 3px 0;
 }
 section#singnUpLogin div#btnFrame div#btnSlider.on {
-  color: rgb(0, 120, 0);
+  color: rgb(0, 70, 0);
   text-shadow: 1px 1px 4px rgb(0, 0, 0);
   transform: translateX(67%);
 }
@@ -153,8 +153,9 @@ section#singnUpLogin button {
 }
 
 html {
-  position: absolute;
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -163,14 +164,13 @@ html {
   margin: 0;
   padding: 0;
 }
-
-body {
-  position: absolute;
+html body {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(3, 4, 9);
-  color: green;
+  background-color: rgb(233, 229, 220);
+  color: rgb(3, 4, 9);
   font-family: "MyCustomFont";
   font-size: 1em;
   width: 100%;
@@ -179,61 +179,118 @@ body {
   margin: 0;
   padding: 0;
 }
-body main {
+html body main {
+  position: relative;
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: center;
   align-items: center;
 }
-body main article#loginWindow {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 220px;
-  box-sizing: border-box;
+html body main header h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
-body main article#loginWindow section#loginInputs {
+html body main article#signUpWindow {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px dotted green;
+  min-width: 400px;
+  max-width: 600px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+html body main article#signUpWindow section#signUpInputs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgb(3, 4, 9);
   border-radius: 15px;
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   transition: border 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-body main article#loginWindow section#loginInputs label {
+html body main article#signUpWindow section#signUpInputs > div.SUF {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+html body main article#signUpWindow section#signUpInputs > div.SUF.right input {
+  border-color: green;
+}
+html body main article#signUpWindow section#signUpInputs > div.SUF.right::after {
+  background-color: green;
+}
+html body main article#signUpWindow section#signUpInputs > div.SUF.wrong input {
+  border-color: red;
+}
+html body main article#signUpWindow section#signUpInputs > div.SUF.wrong::after {
+  background-color: red;
+}
+html body main article#signUpWindow section#signUpInputs > div.SUF::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  top: 1em;
+  right: 0px;
+}
+html body main article#signUpWindow section#signUpInputs > div.SUF label {
   display: block;
   width: 100%;
   font-size: 1.2em;
   text-align: center;
 }
-body main article#loginWindow section#loginInputs input {
+html body main article#signUpWindow section#signUpInputs > div.SUF input {
   width: 100%;
   background-color: inherit;
-  color: yellowgreen;
+  position: relative;
+  color: rgb(122, 68, 26);
   font-family: inherit;
   font-size: 1.2em;
   text-align: center;
   border: none;
   outline: none;
   background: none;
-  border-bottom: dashed 2px green;
-  margin-bottom: 10px;
+  border-bottom: dashed 2px rgb(3, 4, 9);
   transition: inherit;
 }
-body main article#loginWindow section#loginInputs.on {
+html body main article#signUpWindow section#signUpInputs > div.SUF input::after {
+  content: "x";
+  background-color: violet;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+}
+html body main article#signUpWindow section#signUpInputs > div.SUF .warning {
+  display: block;
+  color: red;
+  font-size: 0.7em;
+  margin: 0;
+  text-align: center;
+}
+html body main article#signUpWindow section#signUpInputs.on {
   color: rgb(190, 190, 190);
   border-color: rgb(190, 190, 190);
 }
-body main article#loginWindow section#loginInputs.on input {
+html body main article#signUpWindow section#signUpInputs.on input {
   border-color: rgb(190, 190, 190);
 }
-body main article#loginWindow section#loginButtons {
+html body main article#signUpWindow section#signUpButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -242,22 +299,40 @@ body main article#loginWindow section#loginButtons {
   box-sizing: border-box;
   width: 100%;
 }
-body button {
+html body main article#signUpWindow section#signUpButtons button {
   background-color: transparent;
-  color: green;
-  flex-grow: 1;
+  width: 49.7%;
+  color: rgb(3, 4, 9);
   font-size: 1.2em;
   font-family: inherit;
   padding: 10px 15px;
-  border: 2px dashed green;
+  border: 2px dashed rgb(3, 4, 9);
   border-radius: 15px;
 }
 @media (orientation: portrait) {
-  body button {
-    border: green dotted 3px;
+  html body main article#signUpWindow section#signUpButtons button {
+    border: rgb(3, 4, 9) solid 3px;
   }
 }
-body button:hover {
-  background-color: green;
-  color: rgb(3, 4, 9);
-}/*# sourceMappingURL=loginDark.css.map */
+html body main article#signUpWindow section#signUpButtons button:hover {
+  background-color: rgb(3, 4, 9);
+  color: rgb(233, 229, 220);
+}
+html body main article#signUpWindow section#signUpButtons button.loading {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    background-color: rgb(233, 229, 220);
+    color: rgb(3, 4, 9);
+  }
+  50% {
+    background-color: rgb(3, 4, 9);
+    color: rgb(233, 229, 220);
+  }
+  100% {
+    background-color: rgb(233, 229, 220);
+    color: rgb(3, 4, 9);
+  }
+}/*# sourceMappingURL=signUpBright.css.map */

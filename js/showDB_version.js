@@ -1,6 +1,6 @@
 import {status} from "./js.js";
 
-function showDB_version(databaseString) {
+function showDB_version(databaseString, propName) {
     
    // console.log("databaseString: " + typeof databaseString);
     var data = JSON.parse(databaseString);
@@ -10,7 +10,7 @@ function showDB_version(databaseString) {
     }
     //findind the newest record in the database and using its  timestamp value as version of the database
     let highestTimestamp = data.reduce(
-        (max, item) => item.timeStamp > max ? item.timeStamp : max, data[0].timeStamp
+        (max, item) => item[propName] > max ? item[propName]: max, data[0][propName]
     );
     status.emptyDatabase = false;
     return highestTimestamp;

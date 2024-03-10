@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Fictional Overdue Payment Reminder</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            text-align: center;
+        }
+        .email-container {
+            background: #fff;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            padding: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>Hi!</h1>
+            <h1>We got a request to signup new user to {{appName}}</h1>
+            <div>
+                <h4>User details:</h4>
+                <p>User name: {{userName}}</p>
+                <p>Email: {{userEmail}}</p>
+            </div>
+        </div>
+        <div class="content">
+            <p>To activate your account in gymqr please click the link below:</p>
+            <a href="{{link}}" class="button">{{link}}</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -9,7 +9,7 @@ async function refreshDatabase(tableName, localStorageName) {
     const fetchResult = await customFetch({ getAll: tableName })
     .then(response => response.text())
     .then((data) => {
-       // console.log(data);
+        //console.log(data);
         if(data === "tokenError") {
             console.log("tokenError on refreshDatabase");
             window.location.href = 'login.html'; return;

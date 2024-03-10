@@ -1,3 +1,4 @@
+//checking if database is an array of objects
 function databaseCorrectnessCheck(databaseString) {
 
     try {

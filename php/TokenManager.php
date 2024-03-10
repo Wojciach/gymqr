@@ -31,9 +31,16 @@ class TokenManager
                 $payload = base64_decode($jwtParts[1]);
                 $payloadArray = json_decode($payload, true);
 
-                $passDir = $payloadArray['sub'];
+                $passDir = $payloadArray['sub']; 
 
-                require("./passes/$passDir/emailPass.php");
+                $individuaEmaillPass = "./passes/$passDir/emailPass.php";
+                $universalEmailPass = "./passes/tester/emailPass.php";
+                if (file_exists($individuaEmaillPass)) {
+                    require $individuaEmaillPass;
+                } else {
+                    require $universalEmailPass;
+                }
+
                 $secretKey = 'magicSecretOf' . $tokenPass .  $payloadArray['sub']; // Replace with your secret key
                 $decoded = JWT::decode($jwt, new Key($secretKey, 'HS256'));
                 
@@ -70,7 +77,16 @@ class TokenManager
         'exp' => time() + (60*60*24), // Expiration time (24 hour from now)
         'layout' => $row['layout']
         ];
-        require("./passes/$login/emailPass.php");
+
+        // if user doesn to have its own individual email set, the universal one is used
+        $individuaEmaillPass = "./passes/$login/emailPass.php";
+        $universalEmailPass = "./passes/tester/emailPass.php";
+        if (file_exists($individuaEmaillPass)) {
+            require $individuaEmaillPass;
+        } else {
+            require $universalEmailPass;
+        }
+
         $jwt = JWT::encode($payload, 'magicSecretOf' . $tokenPass . $login, 'HS256');
        // echo "łolaboga!";
         echo json_encode([

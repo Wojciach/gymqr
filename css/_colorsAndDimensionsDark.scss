@@ -6,8 +6,13 @@ $fontColor2: yellowgreen;
 
 $bcgColor: rgb(3, 4, 9);
 $bcgColor2: rgb(14, 23, 11);
+$fontColor3: $fontColor2;
 
-$greyButtonHighlight: rgb(255, 255, 255);
+$bcgAlternative: lighten($bcgColor, 10%);
+$bcgAlternative2: transparent;
+$bcgAlternative3: transparent;
+
+$greyButtonHighlight:  rgb(100, 100, 100);
 $greyButtonColor: rgb(143, 141, 138);
 $greyButtonShadow: rgb(0, 0, 0); 
 

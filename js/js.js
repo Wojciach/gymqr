@@ -8,7 +8,7 @@ import showDB_version from "./showDB_version.js";
 import { showAlert } from "./showAlert.js";
 import withConfirmation from "./withConfirmation.js";
 import { showAddRecordScreen } from "./addDbRecord.js";
-import findOldestNewestScanTime from "./findOldestNewestScanTime.js";
+import { customFetch } from "./customFetch.js";
 
 export const status = {
   onLine: false,
@@ -50,7 +50,7 @@ $(document).ready(function() {
 });
 
 function showVersion() {
-    const admin = localStorage.getItem('admin') || "%$*";
+    const admin = localStorage.getItem('admin') || "%$* Incorrect Admin Name *%";
     const newAdmin = admin.replace(/[^\w\s]/gi, '');
     if (admin === newAdmin) {
       $("#adminName")
@@ -63,9 +63,10 @@ function showVersion() {
     }
   
     const Database = localStorage.getItem('Database');
+
     if (databaseCorrectnessCheck(Database)) {
       $("#DB_Version")
-        .text(showDB_version(Database))
+        .text(showDB_version(Database, "timeStamp"))
         .removeClass('fontColorRed');
     } else {
       $("#DB_Version")
@@ -74,12 +75,10 @@ function showVersion() {
     }
     var allScans = localStorage.getItem('allScansFromServer');
   
-    if (databaseCorrectnessCheck(allScans) && JSON.parse(allScans).length === 0) {
-          $("#scanDB_Version").text("Database empty").addClass('fontColorRed');
-    }else if (JSON.parse(allScans).length > 0) {
-      $("#scanDB_Version")
-        .text(findOldestNewestScanTime(JSON.parse(allScans)).newestScanTime)
-        .removeClass('fontColorRed');
+    if (databaseCorrectnessCheck(allScans)) {
+          $("#scanDB_Version")
+            .text(showDB_version(allScans, "scanTime"))
+            .removeClass('fontColorRed');
     } else {
       $("#scanDB_Version")
         .text("incorrect database")
@@ -185,8 +184,34 @@ $("#settings").click(function() {
   window.location.reload();
 });
 
-$("#logout").click(function() {
+$("#logout").click(logout);
 
+$('#deleteAdmin').click(function() {
+  $("#confirmDialog").load(
+    "confirmDialog.html?_=" + Math.random(),
+    () => withConfirmation(
+        () => {
+          console.log("removing admin");
+          customFetch({deleteThisAdmin: localStorage.getItem('admin')})
+            .then(response => response.text())
+            .then(data => {
+              if(data === "ok") {
+                logout();
+              } else {
+                throw new Error("errorek");
+              }
+            })
+            .catch((e) => {
+              console.log(`errorendo: ` + e.message);
+            });
+        },
+        `(((removeing all data of ${localStorage.getItem('admin')})))`,
+        "Do you want to remove this account? <br> This action is irreversible and will remove all data regarding this user. ",
+        "WARNING!"
+     
+  ));
+});
+function logout() {
   localStorage.removeItem('token');
   localStorage.removeItem('Database');
   localStorage.removeItem('allScansFromServer');
@@ -195,4 +220,4 @@ $("#logout").click(function() {
   localStorage.removeItem('scannedUsers');
 
   window.location.href = 'login.html';
-});
+}

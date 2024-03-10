@@ -1,16 +1,23 @@
 $size1: 200px;
-    //$bcgColorsss: rgb(211, 182, 149);;
-$bcgColor: rgb(233, 229, 220);
-$bcgColor2: rgb(147, 131, 96);
 
 $greyButtonHighlight: rgb(255, 255, 255);
 $greyButtonColor: rgb(168, 140, 104);
 $greyButtonShadow: rgb(0, 0, 0);
 
+
+$bcgColor: rgb(233, 229, 220);
+$bcgColor2: rgb(147, 131, 96);
+
+$bcgAlternative: darken($bcgColor, 10%);
+$bcgAlternative2: $greyButtonColor;
+$bcgAlternative3: darken($bcgAlternative2, 10%);
+
 $greyedOut:rgb(190, 190, 190);
 
 $fontColor: rgb(3, 4, 9);
 $fontColor2: rgb(122, 68, 26);
+//$fontColor3: darken($fontColor2 , 10%);
+$fontColor3: $bcgColor;
 
 $darkGreen: rgb(0, 160, 0);
 $darkerGreen: rgb(0, 70, 0);

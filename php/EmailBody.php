@@ -23,6 +23,9 @@ class EmailBody
     {
         $qrCoce = include 'qrCodeGenerator.php';
         $template = file_get_contents('emailLayout.html');
+        if (!$template) {
+            throw new \Exception("Failed to open email layout file: emailLayout.html");
+        }
         $body = str_replace(
             array('{{qrCode}}', '{{name}}', '{{surname}}', '{{id}}'),
             array($qrCode, $this->name, $this->surname, $this->id),

@@ -1,26 +1,21 @@
 //this function let you to run calbackFunction with prevoius confirmation
 
-function withConfirmation(calbackFunction, userData = null, message) {
+function withConfirmation(calbackFunction, userData = null, message, title = null) {
 
     console.log("withConfirmation");
     console.log(message);
     
     $("#confirmDialog").css("display", "flex");
     $("#confirmText").html(message);
-   
+    $("#confirmTitle").html(title); 
+    $("#confirmUserDetails").text(userData);
 
-    let userDetails = userData 
-    ? userData?.name + " " + userData?.surname + " (id: " + userData?.id + ")"
-    : "";
-    
-    $("#confirmUserDetails").text(userDetails);
-
-    $("#confirmYes").click(function() {
+    $("#confirmYes").off('click').click(function() {
         $("#confirmDialog").hide();
         calbackFunction(userData?.id);
     });
 
-    $("#confirmNo").click(function() {
+    $("#confirmNo").off('click').click(function() {
         console.log("confirmNo clicked");
         $("#confirmDialog").hide();
     });

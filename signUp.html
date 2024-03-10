@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Sign Up</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/signUp.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LfSK1wpAAAAANjGvUUHlIVMCElgpB2VvVMe_huM"></script>
+    </head>
+    <script>
+        var link = document.querySelector('link[rel="stylesheet"]');
+        layout = localStorage.getItem('layout') || 'bright';
+        if (layout == 'bright') link.href = 'css/signUpBright.css';
+        else if(layout == 'dark') link.href = 'css/signUpDark.css';
+        else link.href = 'css/signUpBright.css';
+    </script>
+    <body>
+        <main>
+            <header>
+                <h1>Sign Up</h1>
+            </header>
+            <article id="signUpWindow">
+                <section id="signUpInputs">
+                    <div class="SUF" id="usernameSUF">
+                        <label for="signupUsername">Username:</label>
+                        <input
+                            id="signupUsername"
+                            type="text"
+                        />
+                        <div class="warning"></div>
+                    </div>
+                    <div class="SUF" id="passwordSUF">
+                        <label for="signupPassword">Password:</label>
+                        <input
+                            id="signupPassword"
+                            type="password"
+                        />
+                        <div class="warning"></div>
+                    </div>
+                    <div class="SUF" id="passwordConfirmSUF">
+                        <label for="signupPasswordConfirm">Confirm Password:</label>
+                        <input
+                            id="signupPasswordConfirm"
+                            type="password"
+                        />
+                        <div class="warning"></div>
+                    </div>
+                    <div class="SUF" id="emailSUF">
+                        <label for="signupEmail">Email:</label>
+                        <input
+                            id="signupEmail"
+                            type="email"
+                        />
+                        <div class="warning"></div>
+                    </div>
+                </section>
+                <section id="signUpButtons">
+                    <button id="cancelButton">Cancel</button>
+                    <button id="snedSignUpForm">Sign Up</button>
+                </section>
+            </article>
+            <article id="alert"></article>
+        </main>
+        <script src="js/signUp.js" type="module"></script>
+    </body>
+</html>

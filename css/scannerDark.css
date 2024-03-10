@@ -47,9 +47,11 @@ article#alert #alertTitle, article#confirmDialog #alertTitle {
 article#alert div#confirmText, article#alert div#alertMessage, article#alert div#alertInstructions, article#confirmDialog div#confirmText, article#confirmDialog div#alertMessage, article#confirmDialog div#alertInstructions {
   width: 80%;
   text-align: center;
+  font-size: 0.8em;
 }
 article#alert div#alertUserDetails, article#alert div#confirmUserDetails, article#confirmDialog div#alertUserDetails, article#confirmDialog div#confirmUserDetails {
   display: flex;
+  margin: 10px 0;
   max-height: 50%;
   width: 80%;
   align-items: flex-start;
@@ -277,14 +279,14 @@ body main article#scannerWindow section#scannedUsers ul li .liStatus {
   display: flex;
   position: relative;
   color: yellowgreen;
-  background-color: yellow;
+  background-color: rgb(175, 175, 0);
   height: 20px;
   width: 20px;
   margin-right: 6px;
   border-radius: 50%;
 }
 body main article#scannerWindow section#scannedUsers ul li.sent .liStatus {
-  background-color: green;
+  background-color: rgb(0, 160, 0);
 }
 body main article#scannerWindow section#scannedUsers .buttonBar {
   width: 100%;

@@ -89,11 +89,7 @@ $("#paymentStatus").click(function() {
                "confirmDialog.html?random=" + Math.random(),
                () => { withConfirmation(
                          sendReminder,
-                         {
-                              id: userId,
-                              name: userName,
-                              surname: userSurname
-                         },
+                         `${userName} ${userSurname} (id: ${userId} )`,
                          'Do you want to sned reminder email to this user?'
                )}
           );

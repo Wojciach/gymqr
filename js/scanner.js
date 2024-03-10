@@ -32,9 +32,9 @@ if (databaseCorrectnessCheck(localStorage.getItem("Database")) === true) {
     $("#DB_Version").text("incorrect database");
 };
 
-
 var scannedUsers = localStorage.getItem("scannedUsers");
 if (scannedUsers) {
+
 
     scannedUsers = JSON.parse(scannedUsers);
     let Database = JSON.parse(localStorage.getItem("Database"));
@@ -45,8 +45,8 @@ if (scannedUsers) {
             `<li>
                 <div class="liID">${scan[0]}.</div>
                 <div class="liNameSurname">
-                    <div class="liName">${indexInDatabase.name}</div>
-                    <div class="liSurname">${indexInDatabase.surname}</div>
+                    <div class="liName">${indexInDatabase?.name}</div>
+                    <div class="liSurname">${indexInDatabase?.surname}</div>
                 </div>
                 <div class="liTime">${scan[2].slice(11)}</div>
                 <div class="liStatus"></div>
@@ -110,6 +110,6 @@ $("#clearScans").click(function() {
                 }
             },
             null,
-            "Doy you want to clear all scans?"
+            "Do you want to clear all scans?"
     ));
 });

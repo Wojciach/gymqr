@@ -11,11 +11,7 @@ import { showAlert } from './showAlert.js';
     });
 
     $("#signUpButton").click(() => {
-        grecaptcha.ready(function() {
-            grecaptcha.execute('6LfSK1wpAAAAANjGvUUHlIVMCElgpB2VvVMe_huM', {action: 'submit'}).then(function(token) {
-                createNewAdmin(token);
-            });
-        });
+        window.location.href = 'signUp.html';
     });
 
 function checkCredentials(token) {
@@ -24,10 +20,10 @@ function checkCredentials(token) {
     let password = $("#loginPassword").val();
     let recaptchaResponse = token;
 
-    customFetch({checkCredentials: [login, password, recaptchaResponse]})
+    customFetch({checkCredentials: [recaptchaResponse, login, password]})
         .then(response => response.json()) //should be a json
         .then(data => {
-            //console.log(data);
+            console.log(data);
            // data = JSON.parse(data);
             if(data.token) {
                 localStorage.setItem("token", data.token);
@@ -78,7 +74,6 @@ $('#singnUpLogin').click(function(){
         $('#btnSlider').addClass('on');
         $('#loginInputs').addClass('on');
 
-
         $('#signUpButton').slideDown('fast');
         $('#loginButtons').slideUp('fast');
     } else {
@@ -95,13 +90,3 @@ $('#singnUpLogin').click(function(){
         $('#loginButtons').slideDown('fast');
     }
 });
-
-function createNewAdmin(token) {
-    alert("xxx");
-    customFetch({createNewAdmin : ["aa", 'bbb', token]})
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
-        })
-
-}

@@ -16,9 +16,9 @@ export function showDB() {
     var btn3 = createButton("closeDB", "Close");
 
     $('#databaseButtonBar').prepend(btn1, btn2, btn3);
-    $("#sortingButtonBar button").click((event) => sortBy($("#database #fetchedData p"), event));
+    $("#sortingButtonBar button").off('click').click((event) => sortBy($("#database #fetchedData p"), event));
 
-    $("#editDB").click(() => {
+    $("#editDB").off('click').click(() => {
         const markedUser = $('#fetchedData p.marked').attr('data-dbid');
         showAddRecordScreen(markedUser);
         $("#deleteUser").show();
@@ -26,19 +26,19 @@ export function showDB() {
         $("#saveNewRecord").hide();
       });
     
-    $("#addDbRecord").click(() => {
+    $("#addDbRecord").off('click').click(() => {
         showAddRecordScreen();
         $("#deleteUser").hide();
         $("#saveChanges").hide();
         $("#saveNewRecord").show();
     });
 
-    $('#closeDB').click(() => {
+    $('#closeDB').off('click').click(() => {
       closeDB();
       window.location.href = "index.html";
     });
     
-    $('#databaseButtonBar #sendQRs').click(function() {
+    $('#databaseButtonBar #sendQRs').off('click').click(function() {
         $("#fetchedData p.marked").each(function() {
            // console.log($(this).attr("data-DBid"));
         });
@@ -68,27 +68,27 @@ export function showDB() {
     });
 
     //database conrols (fisrst screen - after clickinig on Show)
-  $("#close").click(closeDbRecord);
+  $("#close").off('click').click(closeDbRecord);
 
   $("#saveNewRecord").off('click').click(() => {
       if (!emailValidation($('#email').val())) return;
       saveNewRecord();
     });
 
-  $("#deleteUser").click(() => {
-    console.log("deleteUser clicked");
+  $("#deleteUser").off('click').click(() => {
+
+    const userId = $("#DBid").data('DBid');
+    const userName = $("#name").val();
+    const userSurname = $("#surname").val();
+    
       withConfirmation(
-        deleteRecord,
-        {
-          id: $("#DBid").data('DBid'),
-          name: $("#name").val(),
-          surname: $("#surname").val()
-        },
-        'Are you sure you want to delete this record?'
+          () => { deleteRecord(userId) },
+          `${userName} ${userSurname} (id: ${userId} )`,
+          'Are you sure you want to delete this record?'
       );
     });
 
-  $("#saveChanges").click(() => {
+  $("#saveChanges").off('click').click(() => {
     if (!emailValidation($('#email').val())) return;
     withConfirmation(
       saveNewRecord,

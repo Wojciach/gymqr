@@ -2,6 +2,7 @@ import { showDB } from "./showDB.js";
 import { dataFromForm } from "./js.js";
 import { customFetch } from "./customFetch.js";
 import refreshDatabase from "./refreshDatabase.js";
+import { showAlert } from "./showAlert.js";
 
 export function showAddRecordScreen(DBid = null) {
     $('#DBid').text(DBid);
@@ -93,7 +94,12 @@ export function saveNewRecord(id = null) {
 }
 
 export function deleteRecord(DBid) {
+    console.log("deleteRecord: " + DBid);
     customFetch({deleteUser: DBid})
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    })
     .then(() => {
         refreshDatabase('users', 'Database').then(showDB);
         $('#addUser').css('display', 'none');

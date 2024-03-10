@@ -8,91 +8,128 @@ article#statusMonitor {
     height: $size1;
     left: 0;
     top: 0;
-    border: $border;
+    border: 2px solid $fontColor2;
     box-sizing: border-box;
     color: $fontColor;
     font-size: 2.5em;
     text-align: center;
     font-family: "MyCustomFont";
     div#particularStatusMonitor {
-        margin-left: 10px;
-        text-align: left;
-        width: 100%;
+        font-size: 0.7em;
+        position: relative;
         display: flex;
         flex-direction: column;
-        position: relative;
-        justify-content: center;
-        font-size: 0.7em;
-        div {
+        width: 100%;
+        align-items: flex-end;
+        align-content: flex-end;
+        justify-content: space-between;
+        justify-items: flex-end;
+        #logoutButtonSection {
+            position: relative;
             display: flex;
             flex-direction: row;
-            justify-content: left;
+            justify-content: space-between;
             width: 100%;
-            span {
+            button {
+                font-family: 'MyCustomFont';
+                color: $fontColor;
+                font-size: 1em;
+                padding: 5px 10px;
+                border: 2px solid $fontColor;
+                background-color: $bcgColor;
+                &:hover {
+                    background-color: $bcgAlternative;
+                }
+                &#logout {
+                    border: 2px solid $fontColor;
+                    border-radius: 0 0 0 10px;
+                    border-top: none;
+                    border-right: none;
+                    &:hover {
+                        transform: translate(-2px, 2px);
+                    }
+                }
+                &#deleteAdmin {
+                    border-radius: 0 0 10px 0;
+                    border-top: none;
+                    border-left: none;
+                    &:hover {
+                        transform: translate(2px, 2px);
+                    }
+                }
+            }
+        }
+        #restOfStatusMonitor {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            overflow-y: scroll;
+            &::-webkit-scrollbar {
+                width: 8px;  // Width of the scrollbar
+            }
+            
+            &::-webkit-scrollbar-track {
+                background: $bcgColor;  // Color of the track
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                background: $fontColor2;  // Color of the thumb
+                border-radius: 10px;  // Rounded corners
+            }
+            
+            &::-webkit-scrollbar-thumb:hover {
+                background: $bcgAlternative;  // Color of the thumb when hovered
+            }
+            
+            #databaseVersionMonitor {
+                position: relative;
                 display: flex;
-                width: 50%;
-                box-sizing: border-box;
-                &:first-child {
-                    width: 40%;
-                }
-                &#adminName {
-                    text-transform: capitalize;
-                }
-            }
-        }
-    }
-    div#databaseVersionMonitor {
-        position: relative;
-        width: 10%;
-        display: flex;
-        box-sizing: border-box;
-        #DB_Title {
-            font-size: 1em;
-        }
-        #DB_Version {
-            font-size: 0.5em;
-        }
-        button {
-            font-family: "MyCustomFont";
-            position: absolute;
-            display: block;
-            color: $fontColor;
-            background-color: $bcgColor;
-            &#settings {
-                cursor: pointer;
-                background-image: url('../images/sun-2-svgrepo-com.svg');
-                background-size: 85%;
-                background-repeat: no-repeat;
-                background-position: center;
-                width: 70px;
-                height: 70px;
-                margin: 5px;
-                right: 0;
-                bottom: 0;
-                &:hover {
-                    opacity: 0.5;
-                }
-                &.dark {
-                    background-image: url('../images/moon-stars-svgrepo-com.svg');
+                flex-direction: column;
+                margin: 10px 0 10px 0;
+                text-align: left;
+                width: 100%;
+                >div {
+                    border-radius: 0 10px 10px 0;
+                    &:nth-child(even) {
+                        background-color: $bcgAlternative;
+                        >span:first-child {
+                            background-color: $bcgAlternative3;
+                        }
+                    }
+                    >span:first-child {
+                        padding-left: 10px;
+                        border-radius: 0 10px 10px 0;
+                        color: $fontColor3;
+                        background-color: $bcgAlternative2;
+                        //font-weight: bold;
+                    }
                 }
             }
-            &#logout {
-                cursor: pointer;
-                right: 0;
-                top: 0;
-                width: 200px;
-                padding: 2px 0;
-               // height: 50px;
-                font-size: 0.8em;
-                border: $border;
-                border-right: none;
-                border-top: none;
-                border-radius: 0 0 0 20px;
-                &:hover {
-                    transform: translate(-2px, 2px);
-                    background-color: $fontColor;
-                    color: $bcgColor;
-                    transition: all 0.2s ease-in-out;
+            #settingsSection {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                align-content: flex-end;
+                justify-content: flex-end;
+                button {
+                    background-color: $bcgColor;
+                    border-radius: 15px;
+                    background-image: url('../images/sun-2-svgrepo-com.svg');
+                    background-size: 85%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: 70px;
+                    height: 70px;
+                    &:hover {
+                        background-color: $bcgAlternative;
+                    }
+                    &.dark {
+                        background-image: url('../images/moon-stars-svgrepo-com.svg');
+                    }
+                
                 }
             }
         }

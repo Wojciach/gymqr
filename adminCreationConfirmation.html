@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4; /* Light background color */
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #db3434, #f56a6a); /* Gradient from blue to a lighter blue */
+            text-align: center;
+            color: #fff; /* White text color */
+            padding: 10px;
+            border-radius: 5px;
+        }
+        h4 {
+            text-align: center;
+        }
+        #positioner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        #message {
+            width: min-content;
+            border: #333 2px solid;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            white-space: nowrap;
+            align-self: center;
+            font-weight: 700;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <h1>New Admin Creation</h1>
+    <div id="positioner">
+        <div id="message"></div>
+    </div>
+
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var message = decodeURIComponent(urlParams.get('result'));
+    
+        document.getElementById('message').innerHTML = message;
+        console.log(message);
+    
+    </script>
+</body>
+
+
+</html>

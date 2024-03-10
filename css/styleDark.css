@@ -22,7 +22,7 @@ article#databaseControls {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(3, 4, 9);
+  background-color: transparent;
   flex-direction: row;
   justify-content: space-around;
   position: relative;
@@ -32,8 +32,9 @@ article#databaseControls {
   right: 0;
   top: 0;
   bottom: 0;
-  border: green dotted 3px;
   border-top: none;
+  border: none;
+  border-bottom: 2px solid yellowgreen;
   box-sizing: border-box;
   color: green;
   font-size: 2.5em;
@@ -51,13 +52,15 @@ article#databaseControls {
   }
 }
 article#databaseControls button {
+  border-radius: 25px;
   cursor: pointer;
   width: 25%;
   text-align: center;
   color: yellowgreen;
   font-family: inherit;
   font-size: 0.6em;
-  background-color: transparent;
+  background-color: rgb(3, 4, 9);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5), inset -2px -2px 5px 0px rgb(0, 0, 0), inset 2px 2px 5px 4px rgb(100, 100, 100);
 }
 @media (orientation: landscape) {
   article#databaseControls button {
@@ -71,6 +74,7 @@ article#databaseControls button {
 }
 article#databaseControls button:hover {
   color: green;
+  background-color: #10152f;
 }
 article#databaseControls button.loading {
   animation: blink 0.7s infinite;
@@ -100,7 +104,7 @@ article#statusMonitor {
   height: 200px;
   left: 0;
   top: 0;
-  border: green dotted 3px;
+  border: 2px solid yellowgreen;
   box-sizing: border-box;
   color: green;
   font-size: 2.5em;
@@ -108,86 +112,118 @@ article#statusMonitor {
   font-family: "MyCustomFont";
 }
 article#statusMonitor div#particularStatusMonitor {
-  margin-left: 10px;
-  text-align: left;
-  width: 100%;
+  font-size: 0.7em;
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
-  justify-content: center;
-  font-size: 0.7em;
+  width: 100%;
+  align-items: flex-end;
+  align-content: flex-end;
+  justify-content: space-between;
+  justify-items: flex-end;
 }
-article#statusMonitor div#particularStatusMonitor div {
+article#statusMonitor div#particularStatusMonitor #logoutButtonSection {
+  position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: space-between;
   width: 100%;
 }
-article#statusMonitor div#particularStatusMonitor div span {
-  display: flex;
-  width: 50%;
-  box-sizing: border-box;
-}
-article#statusMonitor div#particularStatusMonitor div span:first-child {
-  width: 40%;
-}
-article#statusMonitor div#particularStatusMonitor div span#adminName {
-  text-transform: capitalize;
-}
-article#statusMonitor div#databaseVersionMonitor {
-  position: relative;
-  width: 10%;
-  display: flex;
-  box-sizing: border-box;
-}
-article#statusMonitor div#databaseVersionMonitor #DB_Title {
-  font-size: 1em;
-}
-article#statusMonitor div#databaseVersionMonitor #DB_Version {
-  font-size: 0.5em;
-}
-article#statusMonitor div#databaseVersionMonitor button {
+article#statusMonitor div#particularStatusMonitor #logoutButtonSection button {
   font-family: "MyCustomFont";
-  position: absolute;
-  display: block;
   color: green;
+  font-size: 1em;
+  padding: 5px 10px;
+  border: 2px solid green;
   background-color: rgb(3, 4, 9);
 }
-article#statusMonitor div#databaseVersionMonitor button#settings {
-  cursor: pointer;
+article#statusMonitor div#particularStatusMonitor #logoutButtonSection button:hover {
+  background-color: #10152f;
+}
+article#statusMonitor div#particularStatusMonitor #logoutButtonSection button#logout {
+  border: 2px solid green;
+  border-radius: 0 0 0 10px;
+  border-top: none;
+  border-right: none;
+}
+article#statusMonitor div#particularStatusMonitor #logoutButtonSection button#logout:hover {
+  transform: translate(-2px, 2px);
+}
+article#statusMonitor div#particularStatusMonitor #logoutButtonSection button#deleteAdmin {
+  border-radius: 0 0 10px 0;
+  border-top: none;
+  border-left: none;
+}
+article#statusMonitor div#particularStatusMonitor #logoutButtonSection button#deleteAdmin:hover {
+  transform: translate(2px, 2px);
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  overflow-y: scroll;
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor::-webkit-scrollbar {
+  width: 8px;
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor::-webkit-scrollbar-track {
+  background: rgb(3, 4, 9);
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor::-webkit-scrollbar-thumb {
+  background: yellowgreen;
+  border-radius: 10px;
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor::-webkit-scrollbar-thumb:hover {
+  background: #10152f;
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor #databaseVersionMonitor {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 10px 0;
+  text-align: left;
+  width: 100%;
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor #databaseVersionMonitor > div {
+  border-radius: 0 10px 10px 0;
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor #databaseVersionMonitor > div:nth-child(even) {
+  background-color: #10152f;
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor #databaseVersionMonitor > div:nth-child(even) > span:first-child {
+  background-color: transparent;
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor #databaseVersionMonitor > div > span:first-child {
+  padding-left: 10px;
+  border-radius: 0 10px 10px 0;
+  color: yellowgreen;
+  background-color: transparent;
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor #settingsSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-content: flex-end;
+  justify-content: flex-end;
+}
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor #settingsSection button {
+  background-color: rgb(3, 4, 9);
+  border-radius: 15px;
   background-image: url("../images/sun-2-svgrepo-com.svg");
   background-size: 85%;
   background-repeat: no-repeat;
   background-position: center;
   width: 70px;
   height: 70px;
-  margin: 5px;
-  right: 0;
-  bottom: 0;
 }
-article#statusMonitor div#databaseVersionMonitor button#settings:hover {
-  opacity: 0.5;
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor #settingsSection button:hover {
+  background-color: #10152f;
 }
-article#statusMonitor div#databaseVersionMonitor button#settings.dark {
+article#statusMonitor div#particularStatusMonitor #restOfStatusMonitor #settingsSection button.dark {
   background-image: url("../images/moon-stars-svgrepo-com.svg");
-}
-article#statusMonitor div#databaseVersionMonitor button#logout {
-  cursor: pointer;
-  right: 0;
-  top: 0;
-  width: 200px;
-  padding: 2px 0;
-  font-size: 0.8em;
-  border: green dotted 3px;
-  border-right: none;
-  border-top: none;
-  border-radius: 0 0 0 20px;
-}
-article#statusMonitor div#databaseVersionMonitor button#logout:hover {
-  transform: translate(-2px, 2px);
-  background-color: green;
-  color: rgb(3, 4, 9);
-  transition: all 0.2s ease-in-out;
 }
 article#statusMonitor section#onOfLine {
   display: flex;
@@ -227,7 +263,7 @@ article#statusMonitor section#onOfLine div#btnFrame div#btnSlider {
   box-sizing: border-box;
   transition: transform 0.2s ease-in-out;
   text-shadow: 1px 1px 4px green;
-  box-shadow: inset -2px -2px 5px rgb(0, 0, 0), inset 2px 2px 5px rgb(255, 255, 255);
+  box-shadow: inset -2px -2px 5px rgb(0, 0, 0), inset 2px 2px 5px rgb(100, 100, 100);
   width: 60%;
   height: 100%;
 }
@@ -687,9 +723,11 @@ article#alert #alertTitle, article#confirmDialog #alertTitle {
 article#alert div#confirmText, article#alert div#alertMessage, article#alert div#alertInstructions, article#confirmDialog div#confirmText, article#confirmDialog div#alertMessage, article#confirmDialog div#alertInstructions {
   width: 80%;
   text-align: center;
+  font-size: 0.8em;
 }
 article#alert div#alertUserDetails, article#alert div#confirmUserDetails, article#confirmDialog div#alertUserDetails, article#confirmDialog div#confirmUserDetails {
   display: flex;
+  margin: 10px 0;
   max-height: 50%;
   width: 80%;
   align-items: flex-start;
@@ -745,7 +783,7 @@ html, body {
   left: 0;
   margin: 0;
   padding: 0;
-  background-color: red;
+  background-color: rgb(3, 4, 9);
   box-sizing: border-box;
 }
 html main, body main {
