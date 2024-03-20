@@ -6,7 +6,7 @@ import withConfirmation from './withConfirmation.js';
 import sortBy from './sortBy.js';
 import databaseCorrectnessCheck from './databaseCorrectnessCheck.js';
 
-export function showDB() {
+export function showDB(editUser = null) {
 
   //  console.log("showDB");
     $("#sortingButtonBar button").removeClass("marked");
@@ -91,15 +91,19 @@ export function showDB() {
   $("#saveChanges").off('click').click(() => {
     if (!emailValidation($('#email').val())) return;
     withConfirmation(
-      saveNewRecord,
-      {
-        id: $("#DBid").data('DBid'),
-        name: $("#name").val(),
-        surname: $("#surname").val()
-      },
+      ()=>saveNewRecord($("#DBid").data('DBid')),
+      `${$("#name").val()} ${$("#surname").val()} (id: ${$("#DBid").data('DBid')})`,
       'Are you sure you want to save changes to: '
     );
   })
+
+  if (editUser) {
+    showAddRecordScreen(editUser);
+    $("#deleteUser").show();
+    $("#saveChanges").show();
+    $("#saveNewRecord").hide();
+  }
+
 };
 
 export function closeDB() {

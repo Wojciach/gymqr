@@ -28,9 +28,24 @@
         }
         #positioner {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             width: 100%;
+        }
+        #link {
+            margin-top: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        a {
+            text-decoration: none;
+            color: #db3434;
+            font-weight: 700;
+        }
+        a:hover {
+            color: #f56a6a;
         }
         #message {
             width: min-content;
@@ -51,6 +66,10 @@
     <h1>New Admin Creation</h1>
     <div id="positioner">
         <div id="message"></div>
+        <div id="link">
+            Go to login page:
+            <a href="https://gymqr.make-me.website/login.html">Click here!</a>
+        </div>
     </div>
 
 

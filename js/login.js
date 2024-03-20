@@ -1,18 +1,44 @@
 import { customFetch } from './customFetch.js';
 import { showAlert } from './showAlert.js';
 
-
-    $("#loginButton").click(() => {
-        grecaptcha.ready(function() {
-            grecaptcha.execute('6LfSK1wpAAAAANjGvUUHlIVMCElgpB2VvVMe_huM', {action: 'submit'}).then(function(token) {
-                checkCredentials(token);
-            });
+function login() {
+    if (!emptyFieldsCheck()) return;
+    grecaptcha.ready(function() {
+        console.log("recaptcha fired!!");
+        grecaptcha.execute('6LfSK1wpAAAAANjGvUUHlIVMCElgpB2VvVMe_huM', {action: 'submit'}).then(function(token) {
+            checkCredentials(token);
         });
     });
+}
 
-    $("#signUpButton").click(() => {
-        window.location.href = 'signUp.html';
-    });
+$("#loginButton").click(login);
+$(document).on('keydown', function(event) {
+    if (event.key === 'Enter') {
+        login();
+    }
+});
+
+function emptyFieldsCheck() {
+    let login = $("#loginLogin").val().trim();
+    let password = $("#loginPassword").val().trim();
+
+    if (!login || !password) {
+        $("#alert").load(
+            "alert.html",
+            () => showAlert(
+                "",
+                "Please fill in all the fields.",
+                ['fontColorRed', 'fontColor2'],
+                null,
+        ));
+        return false;
+    } 
+    return true;
+}
+
+$("#signUpButton").click(() => {
+    window.location.href = 'signUp.html';
+});
 
 function checkCredentials(token) {
     
@@ -40,7 +66,8 @@ function checkCredentials(token) {
                         data.err,
                         ['fontColor2', 'fontColor'],
                         null,
-                ));
+                    )
+                );
             }
         })
         .catch(() => {
@@ -51,7 +78,7 @@ function checkCredentials(token) {
                     "That's a serious login error. <br> Please contact the administrator.",
                     ['fontColorRed', 'fontColor2'],
                     null,
-                ));
+            ));
         });
 }
 

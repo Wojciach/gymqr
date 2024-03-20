@@ -36,9 +36,9 @@ body, html {
             margin: 0;
             overflow-x: scroll;
             .buttonBar {
-                width: 100%;
+                width: 90%;
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-between;
                 box-sizing: border-box;
                 button {
                     border: 2px $borderStyle $fontColor;
@@ -61,49 +61,51 @@ body, html {
             #attendanceReportsBarButton {
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
                 margin-top: 15px;
                 display: none;
-                width: 80%;
-                @media screen and (max-width: 975px) {
+                width: 90%;
+                @media screen and (max-width: 800px) {
                     width: 50%;
                     flex-direction: column;
                 }
-                justify-content: space-between;
                 label {
                     text-align: center;
-                }
-                input[type="date"] {
-                    margin-bottom: 10px;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    padding-left: 10px;
-                    padding-right: 10px;
-                    font-family: 'MyCustomFont';
-                    font-size: 1.2em;
-                    background-color: $bcgColor;
-                    color: $fontColor2;
-                    appearance: none;
-                    border: 2px $fontColor dashed;
-                    border-radius: 15px; 
-                    outline: none;
-                    &::-webkit-calendar-picker-indicator {
-                        filter: invert(0.8);
-                    }
-                }
-                #selectMemberForAtendanceReport {
-                    display: flex;
-                    flex-direction: column;
-                    font-size: 1.2em;
-                    margin-bottom: 15px;
-                    select {
+                    input[type="date"] {
+                        margin-bottom: 10px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        padding-left: 10px;
+                        padding-right: 10px;
                         font-family: 'MyCustomFont';
-                        font-size: 1em;
+                        font-size: 1.2em;
                         background-color: $bcgColor;
-                        color: $fontColor;
-                        border: 2px $fontColor solid;
+                        color: $fontColor2;
+                        appearance: none;
+                        border: 2px $fontColor dashed;
+                        border-radius: 15px; 
+                        outline: none;
+                        &::-webkit-calendar-picker-indicator {
+                            filter: invert(0.8);
+                        }
+                    }
+                    &#selectMemberForAtendanceReport {
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 1.2em;
+                       // margin-bottom: 15px;
+                        select {
+                            font-family: 'MyCustomFont';
+                            font-size: 1em;
+                            background-color: $bcgColor;
+                            color: $fontColor;
+                            border: 2px $fontColor solid;
+                        }
                     }
                 }
+
+
             }
             #tableManipulationBar {
                 display: none;

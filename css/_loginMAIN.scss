@@ -86,6 +86,9 @@ body {
                 margin-bottom: 10px;
                 box-sizing: border-box;
                 width: 100%;
+                button:first-child {
+                    margin-right: 2px;
+                }
             }
         }
     }

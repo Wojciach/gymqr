@@ -4,9 +4,9 @@ import {showAlert} from './showAlert.js';
 function sendReminder(id) {
    // console.log(id);
     customFetch({sendReminder: Number(id)})
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
-        //console.log(data);
+        console.log(data);
         if(data === "tokenError") {window.location.href = 'login.html'; return;}
         data = JSON.parse(data);
         if (Object.keys(data)[0] === "ok") {

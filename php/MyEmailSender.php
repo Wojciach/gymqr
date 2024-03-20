@@ -75,12 +75,12 @@ class MyEmailSender
         // crating email body to be sent to user as a reminder
         // posible using backup email layout in case the admin has not created its own layout
         $dir;
-        $fileName = "./emailLayouts/$admin/emailLayout.html";
-        $backupFileName = "./emailLayouts/tester/emailLayout.html";
-        if (file_exists($filename)) {
+        $fileName = "./emailLayouts/$admin/reminderEmailLayout.html";
+        $backupFileName = "./emailLayouts/tester/reminderEmailLayout.html";
+        if (file_exists($fileName)) {
             $dir = $fileName;
         } else {
-            $dir = $backupFilename;
+            $dir = $backupFileName;
         }
         $template = file_get_contents($dir);
         if (!$template) {

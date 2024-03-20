@@ -2,10 +2,10 @@ import { customFetch } from "./customFetch.js";
 import { showAlert } from "./showAlert.js";
 
 //exaple of form input
-$('#signupUsername').val('jjjkkk'),
-$('#signupPassword').val('jjjkkk1!A'),
-$('#signupPasswordConfirm').val('jjjkkk1!A'),
-$('#signupEmail').val('wojciech.wyroslak@gmail.com')
+// $('#signupUsername').val('jjjkkk'),
+// $('#signupPassword').val('jjjkkk1!A'),
+// $('#signupPasswordConfirm').val('jjjkkk1!A'),
+// $('#signupEmail').val('')
 
 $("#snedSignUpForm").off('click').click(() => {
     if (clientSideValidation()) {
@@ -62,7 +62,6 @@ function createNewAdmin(token) {
                             window.location.href = "login.html";
                         });
                     }
-                    
                 );
                 return "ok";
             } else if (data.err) {

@@ -2,8 +2,8 @@ let chart;
 
 function attendanceChart(scansByDayAndHour) {
 
-var color1 = (localStorage.getItem('layout') === "bright") ?  'rgba(0, 0, 0, 1)' : 'rgba(0, 125, 0, 1)';
-var color2 = (localStorage.getItem('layout') === "bright") ?  'rgba(185, 140, 90, 1)' : 'rgba(90, 170, 90, 1)';
+var color1 = (localStorage.getItem('layout') === "bright") ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 125, 0, 1)';
+var color2 = (localStorage.getItem('layout') === "bright") ? 'rgba(185, 140, 90, 1)' : 'rgba(90, 170, 90, 1)';
 
 //Assuming scansByDayAndHour is your data
 const data2 = [];
@@ -73,7 +73,6 @@ if (chart) {
             }
         }
     });
-
 }
 
 export default attendanceChart;

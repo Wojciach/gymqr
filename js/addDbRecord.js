@@ -50,7 +50,12 @@ export function fillFormWithServerData(DBid) {
     });
 }
 
-export function fillFromWithStorageData(DBid) {
+export function fillFromWithStorageData(DBid = null) {
+    if (!DBid) return;
+    console.log('DBid from fillFromWithStorageData:');
+    console.log(DBid);
+
+    //console.log("fillFromWithStorageData: " + DBid);
     var Database = localStorage.getItem("Database");
     Database = JSON.parse(Database);
     var foundObject = Database.find(obj => obj.id === Number(DBid));
@@ -62,7 +67,6 @@ export function fillFromWithStorageData(DBid) {
     $('#email').val(foundObject.email);
     $('#paid-date').val(foundObject.paidDate);
     $('#paid-amount').val(foundObject.paidAmount);
-    
 }
 
 export function saveNewRecord(id = null) {
@@ -75,10 +79,11 @@ export function saveNewRecord(id = null) {
     dataFromForm.DBid = id;
 
     var key = id ? "editUser" : "addUser";
-
+    console.log('id:');
+    console.log(id);
     customFetch({[key]: dataFromForm})
     .then(() => {
-        refreshDatabase('users', 'Database').then(showDB);
+        refreshDatabase('users', 'Database').then(() => {showDB();});
         $('#addUser').css('display', 'none');
     })
     .catch(() => {

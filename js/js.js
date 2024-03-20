@@ -30,22 +30,13 @@ Promise.all([
   refreshDatabase('scans', 'allScansFromServer')
 ]).then(() => {showVersion();});
 
+//this function check if there is a redirect parameter in the URL to go straight to editinng user in case this page is oppened as redirec from payment status page
 $(document).ready(function() {
   var urlParams = new URLSearchParams(window.location.search);
   var redirect = urlParams.get('redirect');
- // console.log("redirect: " + redirect);
   if (redirect) {
-   // console.log(typeof redirect);
-   // console.log(redirect);
-    
-      $("#showDB").click();
-
-    setTimeout(() => {
-      showAddRecordScreen(redirect);
-      $("#deleteUser").show();
-      $("#saveChanges").show();
-      $("#saveNewRecord").hide();
-    }, 200);
+    //simulating clicking on Eddit/Add button
+    $("#showDB").trigger("click", { extraData: redirect });
   }
 });
 
@@ -87,14 +78,14 @@ function showVersion() {
 }
 
 
-$("#showDB").click(async function() {
-
+$("#showDB").click(async function(event, data) {
+  console.log(`data from showDB: ${data?.extraData}`)
   $(this).addClass('loading');
   await refreshDatabase('users', 'Database');
   $(this).removeClass('loading');
 
   if (status.onLine === true) {
-    $('#database').load("database.html", showDB)
+    $('#database').load("database.html",  ()=>{showDB(data?.extraData)})
   } else {
     $("#alert").load("alert.html", () => showAlert("You need to be online to edit database."));
   }})

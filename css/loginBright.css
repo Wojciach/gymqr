@@ -242,6 +242,9 @@ body main article#loginWindow section#loginButtons {
   box-sizing: border-box;
   width: 100%;
 }
+body main article#loginWindow section#loginButtons button:first-child {
+  margin-right: 2px;
+}
 body button {
   background-color: transparent;
   color: rgb(3, 4, 9);

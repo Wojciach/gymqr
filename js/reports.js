@@ -88,7 +88,7 @@ $("#paymentStatus").click(function() {
           $("#confirmDialog").load(
                "confirmDialog.html?random=" + Math.random(),
                () => { withConfirmation(
-                         sendReminder,
+                         ()=>sendReminder(userId),
                          `${userName} ${userSurname} (id: ${userId} )`,
                          'Do you want to sned reminder email to this user?'
                )}
@@ -119,7 +119,10 @@ $("#attendanceReport").click(function() {
      }
 
      attendanceReport();
-     $('#selectMember').html('<option value="allMembers">All Members</option>');
+     $('#selectMember').html(`
+          <option value="allScans" selected>All Scans</option>
+          <option value="onlyCurrentMembers">Only Current Members</option>
+     `);
      var users = JSON.parse(localStorage.getItem("Database"));
      users.forEach(user => {
           $('#selectMember').append(`<option value="${user.id}">${user.id}. ${user.name} ${user.surname}</option>`);
